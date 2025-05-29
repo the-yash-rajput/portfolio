@@ -8,18 +8,7 @@ export default function socialMedia() {
   }
   return (
     <div className="social-media-div">
-      {socialMediaLinks.github ? (
-        <a
-          href={socialMediaLinks.github}
-          className="icon-button github"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-github"></i>
-          <span></span>
-        </a>
-      ) : null}
-
+      
       {socialMediaLinks.linkedin ? (
         <a
           href={socialMediaLinks.linkedin}
@@ -32,17 +21,30 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.gmail ? (
+      {socialMediaLinks.github ? (
         <a
-          href={`mailto:${socialMediaLinks.gmail}`}
-          className="icon-button google"
+          href={socialMediaLinks.github}
+          className="icon-button github"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fas fa-envelope"></i>
+          <i className="fab fa-github"></i>
           <span></span>
         </a>
       ) : null}
+
+      {socialMediaLinks.medium ? (
+        <a
+          href={socialMediaLinks.medium}
+          className="icon-button medium"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-medium"></i>
+          <span></span>
+        </a>
+      ) : null}
+
 
       {socialMediaLinks.gitlab ? (
         <a
@@ -92,17 +94,6 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.medium ? (
-        <a
-          href={socialMediaLinks.medium}
-          className="icon-button medium"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-medium"></i>
-          <span></span>
-        </a>
-      ) : null}
 
       {socialMediaLinks.stackoverflow ? (
         <a
@@ -124,6 +115,30 @@ export default function socialMedia() {
           rel="noopener noreferrer"
         >
           <i className="fab fa-kaggle"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.gmail ? (
+        <a
+          href={`mailto:${socialMediaLinks.gmail}`}
+          className="icon-button google"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fas fa-envelope"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.phone ? (
+        <a
+          href={`tel:${socialMediaLinks.phone}`}
+          className="icon-button phone"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fa fa-phone"></i>
           <span></span>
         </a>
       ) : null}

@@ -28,14 +28,14 @@ const greeting = {
 
 // Social Media Links
 const socialMediaLinks = {
-  github: "https://github.com/the-yash-rajput",
   linkedin: "https://www.linkedin.com/in/the-yash-rajput/",
+  github: "https://github.com/the-yash-rajput",
   gmail: "yashrajputishu@gmail.com",
   medium: "https://medium.com/@yashrajputishu",
   facebook: "https://www.facebook.com/profile.php?id=100008839271901",
   instagram: "https://www.instagram.com/yash.ishu_/",
+  phone: "+91-7374094640",
   // stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
-  // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
 };
@@ -257,7 +257,7 @@ const bigProjects = {
   subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
+      // image: require("./assets/images/saayaHealthLogo.webp"),
       projectName: "Saayahealth",
       projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       footerLink: [
@@ -269,7 +269,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/nextuLogo.webp"),
+      // image: require("./assets/images/nextuLogo.webp"),
       projectName: "Nextu",
       projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       footerLink: [
@@ -293,27 +293,6 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Google Code-In Finalist",
-      subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
-      footerLink: [
-        {
-          name: "Certification",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dYkVvNjdNWjNybWJrbndFSHpNY2NFV1p4YmU0/view?usp=sharing"
-        },
-        {
-          name: "Award Letter",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dekxBTW5hQkg2WXUyR3QzQmR0VERiLXlGRVdF/view?usp=sharing"
-        },
-        {
-          name: "Google Code-in Blog",
-          url: "https://opensource.googleblog.com/2019/01/google-code-in-2018-winners.html"
-        }
-      ]
-    },
-    {
       title: "Google Assistant Action",
       subtitle:
         "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
@@ -326,26 +305,11 @@ const achievementSection = {
         }
       ]
     },
-
-    {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
-      imageAlt: "PWA Logo",
-      footerLink: [
-        {name: "Certification", url: ""},
-        {
-          name: "Final Project",
-          url: "https://pakistan-olx-1.firebaseapp.com/"
-        }
-      ]
-    }
   ],
   display: false // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
-
 const blogSection = {
   title: "Blogs",
   subtitle:
@@ -381,12 +345,11 @@ const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
     "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "saadpasta70@gmail.com"
+  number: "+91-7374094640", // Set to empty to hide the number
+  email_address: "yashrajputishu@gmail.com"
 };
 
 // Twitter Section
-
 const twitterDetails = {
   userName: "twitter", //Replace "twitter" with your twitter username without @
   display: false // Set true to display this section, defaults to false

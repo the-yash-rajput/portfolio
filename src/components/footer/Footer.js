@@ -12,16 +12,6 @@ export default function Footer() {
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
           {emoji("Crafted with ❤️ by Yash Rajput")}
         </p>
-        <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-          Portfolio powered by{" "}
-          <a
-            href="https://github.com/saadpasta/developerFolio"
-            target="_blank"
-            rel="noreferrer"
-          >
-            developerFolio
-          </a>
-        </p>
       </div>
     </Fade>
   );

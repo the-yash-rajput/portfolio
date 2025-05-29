@@ -68,6 +68,10 @@
   background-color: $instagram;
 }
 
+.phone i {
+  background-color: $phone;
+}
+
 /* Hover Transition */
 .twitter i:hover,
 .google i:hover,
@@ -78,6 +82,7 @@
 .instagram i:hover,
 .stack-overflow i:hover,
 .kaggle i:hover,
+.phone i:hover,
 .medium i:hover {
   background-color: $textColor;
 }
