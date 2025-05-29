@@ -3,23 +3,23 @@
 Welcome to my personal developer portfolio!  
 This portfolio highlights my work, skills, projects, and professional journey.
 
-🌐 **Live site**: [your-portfolio-link.com](https://your-portfolio-link.com)
+🌐 **Live site**: [yashrajput.in](https://yashrajput.in)
 
 ---
 
 ## 🔥 About Me
 
-Passionate software engineer specializing in backend systems, microservices, and DevOps.  
+Passionate software engineer specializing in backend/frontend systems, microservices, and DevOps.  
 I love solving complex problems, optimizing performance, and building scalable solutions.
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Languages**: Java, TypeScript, JavaScript, Python  
+- **Languages**: Java, TypeScript, JavaScript, Python, C++
 - **Frameworks**: Spring Boot, React, Node.js  
 - **Tools**: Kubernetes, Docker, Redis, Kafka, RabbitMQ, GitHub Actions  
-- **Cloud**: AWS, GCP
+- **Cloud**: AWS
 
 ---
 
@@ -40,4 +40,12 @@ I love solving complex problems, optimizing performance, and building scalable s
 
 ---
 
-Thank you for visiting!
+## Thank You for Visiting!
+
+This project is proudly based on the excellent work from  
+[Portfolio powered by DeveloperFolio](https://github.com/saadpasta/developerFolio).
+
+I’ve customized and extended it to fit my personal/organizational needs.  
+Feel free to explore, fork, or contribute!
+
+---
