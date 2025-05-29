@@ -21,3 +21,16 @@
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 20px;
 }
+
+.splash-welcome h2 {
+  font-size: 2rem;
+  margin-top: 25px;
+  color: var(--accent-color);
+}
+
+.splash-tagline p,
+.splash-note p {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-top: 10px;
+}

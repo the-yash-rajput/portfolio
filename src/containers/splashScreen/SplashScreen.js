@@ -11,10 +11,26 @@ export default function SplashScreen() {
       <div className="splash-animation-container">
         <DisplayLottie animationData={splashScreen.animation} />
       </div>
+
       <div className="splash-title-container">
         <span className="grey-color"> &lt;</span>
         <span className="splash-title">{greeting.username}</span>
         <span className="grey-color">/&gt;</span>
+      </div>
+
+      <div className="splash-message-block" style={{
+        marginTop: "30px",
+        textAlign: "center",
+      }}>
+        <div className="splash-tagline">
+          <p>
+            Crafting impactful experiences through code, design, and innovation.
+          </p>
+        </div>
+
+        <div className="splash-note">
+          <p>✨ Let’s build something amazing together 🚀</p>
+        </div>
       </div>
     </div>
   );
