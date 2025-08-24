@@ -4,7 +4,7 @@ import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
 import StackProgress from "./skillProgress/skillProgress";
 import WorkExperience from "./workExperience/WorkExperience";
-import Projects from "./projects/Projects";
+// import Projects from "./projects/Projects";
 import StartupProject from "./StartupProjects/StartupProject";
 import Achievement from "./achievement/Achievement";
 import Blogs from "./blogs/Blogs";
@@ -16,7 +16,9 @@ import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
 import {splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
-import {useLocalStorage} from "../hooks/useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import OpenSourceContributions from "./openSource/OpenSourec";
+
 import "./Main.scss";
 
 const Main = () => {
@@ -54,7 +56,8 @@ const Main = () => {
             <StackProgress />
             <Education />
             <WorkExperience />
-            <Projects />
+              {/* <Projects /> */}
+              <OpenSourceContributions />
             <StartupProject />
             <Achievement />
             <Blogs />

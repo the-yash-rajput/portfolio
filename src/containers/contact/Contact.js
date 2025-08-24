@@ -61,6 +61,16 @@ export default function Contact() {
                 src={require("../../assets/images/contactMailDark.svg")}
               ></img>
             )}
+            {/* QR Code Card */}
+            <div className="qr-code-card">
+              <img
+                src={require("../../assets/images/qr-code.png")}
+                alt="Scan to connect"
+                className="qr-code-img"
+                loading="lazy"
+              />
+              <div className="qr-code-caption">Scan to connect</div>
+            </div>
           </div>
         </div>
       </div>
