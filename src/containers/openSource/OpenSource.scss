@@ -1,0 +1,107 @@
+// Tab Navigation Styles
+.opensource-tabs {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  border-bottom: 2px solid #e1e5e9;
+  padding-bottom: 0;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  margin: 0 0.5rem;
+
+  &:hover {
+    color: #333;
+    background-color: #f8f9fa;
+  }
+
+  &.active {
+    color: #007bff;
+    background-color: #fff;
+    border-bottom: 3px solid #007bff;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #007bff;
+    }
+  }
+
+  &.dark {
+    color: #a0aec0;
+
+    &:hover {
+      color: #e2e8f0;
+      background-color: #4a5568;
+    }
+
+    &.active {
+      color: #4299e1;
+      background-color: #2d3748;
+      border-bottom-color: #4299e1;
+
+      &::after {
+        background-color: #4299e1;
+      }
+    }
+  }
+}
+
+// Responsive design for tabs
+@media (max-width: 768px) {
+  .opensource-tabs {
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+
+  .tab-button {
+    width: 200px;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    
+    &.active {
+      border-bottom: none;
+      border-left: 3px solid #007bff;
+      
+      &::after {
+        display: none;
+      }
+    }
+
+    &.dark.active {
+      border-left-color: #4299e1;
+    }
+  }
+}
+
+// Animation for tab content switching
+.repo-cards-div-main {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

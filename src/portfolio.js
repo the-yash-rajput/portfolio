@@ -247,7 +247,96 @@ To know how to get github key look at readme.md */
 
 const openSource = {
   showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: true // Set false to hide this section, defaults to true
+  display: true, // Set false to hide this section, defaults to true
+  openSourcePRs: {
+    title: emoji("Open Source Pull Requests 🚀"),
+    subtitle: "Contributions to open source projects through pull requests, showcasing technical skills and community involvement.",
+    display: true, // Set false to hide this section, defaults to true
+    prs: [
+      {
+        title: "Adding PiApproximation Algorithm",
+        description: "Added PiApproximation algorithm to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6602",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6602",
+        status: "merged"
+      },
+      {
+        title: "Added CountBitsFlip Algorithm",
+        description: "Optimized data processing pipeline by implementing efficient caching mechanisms and parallel processing, resulting in 40% faster data processing times.",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6603",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6603",
+        status: "merged",
+      },
+      {
+        title: "Added Ground To Ground Projectile Motion Algorithm",
+        description: "Added Ground To Ground Projectile Motion Algorithm to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6714",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6714",
+        status: "merged",
+      },
+      {
+        title: "Added Added SimplePendulumRK4 Algorithm",
+        description: "Added SimplePendulumRK4 Algorithm to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6800",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6800",
+        status: "merged",
+      },
+      {
+        title: "Adding DampedOscillator Code",
+        description: "Added DampedOscillator Code to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6801",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6801",
+        status: "merged",
+      },
+      {
+        title: "Adding ElasticCollision2D Code",
+        description: "Added ElasticCollision2D Code to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6802",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6802",
+        status: "merged",
+      },
+      {
+        title: "Implement topological sort with DAG validation and cycle detection",
+        description: "Implemented topological sort with DAG validation and cycle detection to TheAlgorithms repository",
+        repository: "TheAlgorithms",
+        repositoryUrl: "https://github.com/TheAlgorithms",
+        prNumber: "6803",
+        prUrl: "https://github.com/TheAlgorithms/Java/pull/6568",
+        status: "open",
+      },
+      
+      // {
+      //   title: "Added MinCostClimbingStairs Algorithm",
+      //   description: "Added comprehensive input validation and sanitization to prevent potential security vulnerabilities in user input handling.",
+      //   repository: "web-security",
+      //   repositoryUrl: "https://github.com/example/web-security",
+      //   prNumber: "8",
+      //   prUrl: "https://github.com/example/web-security/pull/8",
+      //   status: "Merged",
+      //   date: "October 2023",
+      //   technologies: ["JavaScript", "Security", "Input Validation", "XSS Prevention"],
+      //   impact: "Enhanced application security by preventing common vulnerabilities like XSS and injection attacks.",
+      //   changes: [
+      //     "Implemented comprehensive input validation",
+      //     "Added XSS protection mechanisms",
+      //     "Enhanced error handling for security events",
+      //     "Updated security documentation"
+      //   ]
+      // }
+    ]
+  }
 };
 
 // Some big projects you have worked on
@@ -354,6 +443,7 @@ const twitterDetails = {
   userName: "twitter", //Replace "twitter" with your twitter username without @
   display: false // Set true to display this section, defaults to false
 };
+
 
 const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
