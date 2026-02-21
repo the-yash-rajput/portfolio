@@ -41,11 +41,3 @@ I love solving complex problems, optimizing performance, and building scalable s
 ---
 
 ## Thank You for Visiting!
-
-This project is proudly based on the excellent work from  
-[Portfolio powered by DeveloperFolio](https://github.com/saadpasta/developerFolio).
-
-I’ve customized and extended it to fit my personal/organizational needs.  
-Feel free to explore, fork, or contribute!
-
----
