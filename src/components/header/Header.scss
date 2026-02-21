@@ -2,25 +2,34 @@
 
 .headroom-wrapper {
   max-height: none;
+  position: relative;
+  z-index: 220;
 }
 
 .headroom {
-  z-index: 120;
+  z-index: 220 !important;
 }
 
 .header {
   width: min(1120px, 92vw);
   margin: 1rem auto 0;
-  padding: 0.9rem 1rem;
+  padding: 0.65rem 0.75rem;
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.24);
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(12px);
   box-shadow: 0 12px 38px rgba(15, 23, 42, 0.09);
+  position: relative;
+  z-index: 220;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
 }
 
 .dark-menu.header {
-  background: rgba(8, 14, 30, 0.84);
+  background: rgba(8, 14, 30, 0.88);
   border-color: rgba(148, 163, 184, 0.22);
   color: $textColorDark;
 }
@@ -31,27 +40,60 @@
   list-style: none;
 }
 
-.grey-color {
-  color: #94a3b8;
+.header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+  text-decoration: none;
+  min-width: 0;
 }
 
-.header .logo {
-  display: block;
-  float: left;
-  text-decoration: none;
-  line-height: normal;
-  white-space: nowrap;
+.logo-mark {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 11px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%);
+  box-shadow: 0 8px 18px rgba(14, 165, 233, 0.35);
+  flex: 0 0 auto;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .header .logo-name {
-  font-family: "Agustina Regular", "Brush Script MT", cursive;
-  font-size: 1.55rem;
-  padding: 0 0.4rem;
+  font-size: 0.97rem;
+  font-weight: 800;
+  line-height: 1.1;
   color: var(--text-primary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.logo-tag {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.35;
 }
 
 .dark-menu .logo-name {
   color: $textColorDark;
+}
+
+.dark-menu .logo-tag {
+  color: #9fb0c8;
 }
 
 .header li a {
@@ -60,7 +102,7 @@
   padding: 0.58rem 0.95rem;
   color: $textColor;
   text-decoration: none;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -84,68 +126,85 @@
 }
 
 .header .menu {
-  clear: both;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.28s ease;
-}
-
-.header .menu-icon {
-  cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 0.8rem;
-  position: relative;
-  user-select: none;
-}
-
-.header .menu-icon .navicon,
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: $iconBackground;
-  display: block;
-  height: 2px;
-  width: 20px;
-  position: relative;
-  transition: 0.2s ease;
-  content: "";
-}
-
-.header .menu-icon .navicon:before {
-  top: 6px;
-  position: absolute;
-}
-
-.header .menu-icon .navicon:after {
-  top: -6px;
-  position: absolute;
-}
-
-.header .menu-icon .navicon-dark,
-.header .menu-icon .navicon-dark:before,
-.header .menu-icon .navicon-dark:after {
-  background: $textColorDark;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: max-height 0.28s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 
 .header .menu-btn {
   display: none;
 }
 
+.header .menu-icon {
+  cursor: pointer;
+  user-select: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+}
+
+.dark-menu .menu-icon {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+.header .menu-icon .navicon {
+  background: $iconBackground;
+  display: block;
+  height: 2px;
+  width: 18px;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+.header .menu-icon .navicon::before,
+.header .menu-icon .navicon::after {
+  content: "";
+  background: $iconBackground;
+  display: block;
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  transition: 0.2s ease;
+}
+
+.header .menu-icon .navicon::before {
+  top: 6px;
+}
+
+.header .menu-icon .navicon::after {
+  top: -6px;
+}
+
+.header .menu-icon .navicon-dark,
+.header .menu-icon .navicon-dark::before,
+.header .menu-icon .navicon-dark::after {
+  background: $textColorDark;
+}
+
 .header .menu-btn:checked ~ .menu {
   max-height: 640px;
-  padding-top: 0.8rem;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
   background: transparent;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
+.header .menu-btn:checked ~ .menu-icon .navicon::before {
   transform: rotate(-45deg);
   top: 0;
 }
 
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
+.header .menu-btn:checked ~ .menu-icon .navicon::after {
   transform: rotate(45deg);
   top: 0;
 }
@@ -158,10 +217,7 @@
 
 @media (min-width: 62rem) {
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    padding: 0.7rem 0.85rem;
   }
 
   .header .menu {
@@ -169,9 +225,16 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 0.3rem;
+    gap: 0.25rem;
     max-height: none;
     overflow: visible;
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
   }
 
   .header .menu-icon {
@@ -182,11 +245,34 @@
 @media (max-width: 61.99rem) {
   .header {
     width: 92vw;
-    padding: 0.75rem 0.9rem;
+    padding: 0.6rem 0.65rem;
   }
 
   .header .menu {
-    margin-top: 0.4rem;
+    margin-top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 0.45rem);
+    z-index: 420;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 14px;
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.2);
+    pointer-events: none;
+    padding: 0;
+  }
+
+  .dark-menu .menu {
+    background: rgba(8, 14, 30, 0.98);
+    border-color: rgba(148, 163, 184, 0.24);
+  }
+
+  .header .menu-btn:checked ~ .menu {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 0.6rem;
+    pointer-events: auto;
   }
 
   .header li a {
@@ -197,5 +283,15 @@
   .theme-toggle-item {
     justify-content: center;
     margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-tag {
+    display: none;
+  }
+
+  .header .logo-name {
+    font-size: 0.9rem;
   }
 }
