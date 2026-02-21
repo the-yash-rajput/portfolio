@@ -382,7 +382,7 @@ const openSource = {
 // Include certificates etc
 
 const achievementSection = {
-  title: emoji("Achievements And Certifications 🏆 "),
+  title: emoji("Achievements 🏆 "),
   subtitle:
     "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
 
@@ -392,6 +392,7 @@ const achievementSection = {
       subtitle:
         "Qualified 4 times as ACM-ICPC Regionalist with best rank of 82 across Amritapuri, Asia Gwalior-Pune, and Kanpur-Mathura regionals.",
       image: require("./assets/images/icpcLogo.webp"),
+      fallbackImage: require("./assets/images/icpcLogo.png"),
       imageAlt: "ACM ICPC Logo",
       footerLink: [
         {
@@ -405,27 +406,16 @@ const achievementSection = {
       subtitle:
         "Secured 1st place in Turtlemint Hackathon 3.0 by demonstrating innovative problem-solving and strong teamwork.",
       image: require("./assets/images/hackathonLogo.webp"),
+      fallbackImage: require("./assets/images/hackathonLogo.png"),
       imageAlt: "Hackathon Trophy Logo",
       footerLink: []
-    },
-    {
-      title: "Codeforces Specialist",
-      subtitle:
-        "Achieved highest rating of 1438 (Specialist) on Codeforces through consistent competitive programming performance.",
-      image: require("./assets/images/codeforcesLogo.webp"),
-      imageAlt: "Codeforces Logo",
-      footerLink: [
-        {
-          name: "View Codeforces Profile",
-          url: "https://codeforces.com/profile/Try_Fail_Learn_Repeat"
-        }
-      ]
     },
     {
       title: "CodeChef 5 ★",
       subtitle:
         "Reached highest rating of 2003 (5 Star) on CodeChef, reflecting strong algorithmic and data structure expertise.",
       image: require("./assets/images/codechefLogo.webp"),
+      fallbackImage: require("./assets/images/codechefLogo.png"),
       imageAlt: "CodeChef Logo",
       footerLink: [
         {
@@ -435,10 +425,25 @@ const achievementSection = {
       ]
     },
     {
+      title: "Codeforces Specialist",
+      subtitle:
+        "Achieved highest rating of 1438 (Specialist) on Codeforces through consistent competitive programming performance.",
+      image: require("./assets/images/codeforcesLogo.webp"),
+      fallbackImage: require("./assets/images/codeforcesLogo.png"),
+      imageAlt: "Codeforces Logo",
+      footerLink: [
+        {
+          name: "View Codeforces Profile",
+          url: "https://codeforces.com/profile/Try_Fail_Learn_Repeat"
+        }
+      ]
+    },
+    {
       title: "Google Kickstart 2022",
       subtitle:
         "Achieved Global Rank 349 in Google Kickstart 2022 Round D, competing with top programmers worldwide.",
       image: require("./assets/images/googleLogo.webp"),
+      fallbackImage: require("./assets/images/googleLogo.png"),
       imageAlt: "Google Kickstart Logo",
       footerLink: []
     },
@@ -447,6 +452,7 @@ const achievementSection = {
       subtitle:
         "Secured 98.95 percentile, ranking in the top 2% among 900,000+ candidates in JEE.",
       image: require("./assets/images/jeeLogo.webp"),
+      fallbackImage: require("./assets/images/jeeLogo.png"),
       imageAlt: "JEE Exam Logo",
       footerLink: []
     }

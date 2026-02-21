@@ -28,6 +28,9 @@
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.26);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .dark-mode.certificate-card {
@@ -49,17 +52,11 @@
 
 .certificate-image-div {
   position: relative;
-  height: 180px;
+  height: 170px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.achievement-cards-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
 }
 
 .certificate-card-footer {
@@ -68,6 +65,8 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
 }
 
 .certificate-card-footer span.certificate-tag {
