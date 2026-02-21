@@ -30,14 +30,14 @@ const greeting = {
 // Use `visible: false` to hide a section. Any section without `visible` defaults to visible.
 const homepageSections = [
   {id: "greeting", label: "About", visible: true, showInNav: true},
-  {id: "skills", label: "Skills", visible: true, showInNav: true},
+  {id: "skills", label: "Skills", visible: true, showInNav: false},
   {id: "proficiency", label: "Proficiency", visible: true, showInNav: false},
-  {id: "experience", label: "Experience", visible: true, showInNav: true},
+  {id: "experience", label: "Experience", visible: false, showInNav: false},
   {id: "projects", label: "Projects", visible: true, showInNav: true},
   {id: "opensource", label: "Open Source", visible: true, showInNav: true},
+  {id: "blogs", label: "Blogs", visible: true, showInNav: true},
   {id: "education", label: "Education", visible: true, showInNav: true},
   {id: "achievements", label: "Achievements", visible: true, showInNav: true},
-  {id: "blogs", label: "Blogs", visible: true, showInNav: true},
   {
     id: "startup-projects",
     label: "Startup Projects",

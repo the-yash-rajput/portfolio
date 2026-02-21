@@ -3,11 +3,10 @@ import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
-import {greeting, homepageSections, resumeSection} from "../../portfolio";
+import {greeting, homepageSections} from "../../portfolio";
 
 function Header() {
   const {isDark} = useContext(StyleContext);
-  const viewResume = resumeSection.display;
   const navSections = homepageSections.filter(
     section => section.showInNav !== false && section.visible !== false
   );
@@ -32,11 +31,6 @@ function Header() {
               <a href={`#${section.id}`}>{section.label}</a>
             </li>
           ))}
-          {viewResume && (
-            <li>
-              <a href="#resume">Resume</a>
-            </li>
-          )}
           <li className="theme-toggle-item">
             <ToggleSwitch />
           </li>
