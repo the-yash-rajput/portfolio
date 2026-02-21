@@ -14,63 +14,51 @@ export default function Greeting() {
   if (!greeting.displayGreeting) {
     return null;
   }
+
   return (
     <Fade bottom duration={1000} distance="40px">
-      <div className="greet-main" id="greeting">
+      <section className="greet-main" id="greeting" aria-label="Introduction">
         <div className="greeting-main">
           <div className="greeting-text-div">
-            <div>
-              <h1
-                className={isDark ? "dark-mode greeting-text" : "greeting-text"}
-              >
-                {" "}
-                {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
-              </h1>
-              <p
-                className={
-                  isDark
-                    ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
-                }
-              >
-                {greeting.subTitle}
-              </p>
-              <div id="resume" className="empty-div"></div>
-              <SocialMedia />
-              <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
+            <p className={isDark ? "dark-mode hero-kicker" : "hero-kicker"}>
+              Senior Engineer
+            </p>
+            <h1 className={isDark ? "dark-mode greeting-text" : "greeting-text"}>
+              {greeting.title} <span className="wave-emoji">{emoji("👋")}</span>
+            </h1>
+            <p
+              className={
+                isDark ? "dark-mode greeting-text-p" : "greeting-text-p subTitle"
+              }
+            >
+              {greeting.subTitle}
+            </p>
 
-                {greeting.resumeLink && (
-                  <a
-                    href={greeting.resumeLink} // use the actual resumeLink here!
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="view-link-button"
-                  >
-                    <Button text="View Resume" />
-                  </a>
-                )}
+            <div id="resume" className="empty-div"></div>
+            <SocialMedia />
 
-                {greeting.resumeDownloadLink && (
-                  <a
-                    href={greeting.resumeDownloadLink}
-                    className="download-link-button"
-                  >
-                    <Button text="Download resume" />
-                  </a>
-                )}
+            <div className="button-greeting-div">
+              <Button text="Contact me" href="#contact" />
 
-                {/* <a
-                  href={require("./Yash_Resume.pdf")}
-                  download="Yash_Resume.pdf"
-                  className="download-link-button"
+              {greeting.resumeLink && (
+                <a
+                  href={greeting.resumeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="view-link-button"
                 >
-                  <Button text="Download my resume" />
-                </a> */}
-              </div>
+                  <Button text="View Resume" />
+                </a>
+              )}
+
+              {greeting.resumeDownloadLink && (
+                <a href={greeting.resumeDownloadLink} className="download-link-button">
+                  <Button text="Download resume" />
+                </a>
+              )}
             </div>
           </div>
+
           <div className="greeting-image-div">
             {illustration.animated ? (
               <DisplayLottie animationData={landingPerson} />
@@ -82,7 +70,7 @@ export default function Greeting() {
             )}
           </div>
         </div>
-      </div>
+      </section>
     </Fade>
   );
 }

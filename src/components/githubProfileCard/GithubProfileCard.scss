@@ -1,67 +1,69 @@
 @import "../../_globalColor";
 
 .profile-image {
-  border-radius: 50%;
-  border: 0.5rem solid $githubProfileCardBorder;
-  margin-left: auto;
+  border-radius: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.34);
   width: 100%;
-  max-width: 350px;
+  max-width: 230px;
   height: auto;
-  box-shadow: $lightBoxShadow 0 30px 30px -30px;
-  transition: all 0.3s ease-out;
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .profile-image:hover {
-  box-shadow: none;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.28);
 }
 
 .prof-title {
-  margin: 0;
-  font-size: 40px;
-  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 .location-div {
-  text-shadow: $githubProfileCardLocationTS;
+  text-shadow: 0 1px 0 $githubProfileCardLocationTS;
 }
 
 .opp-div {
-  padding-bottom: 1rem;
+  padding-bottom: 0.45rem;
 }
 
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1rem, 2.6vw, 2rem);
+  align-items: center;
 }
 
 .main-content-profile {
-  flex: 80%;
+  width: 100%;
 }
 
 .image-content-profile {
   text-align: right;
-  flex: 20%;
-  max-width: 100%;
-  height: auto;
 }
 
 .bio-text {
-  line-height: 30px;
-  font-size: 22px;
+  line-height: 1.75;
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: $subTitle;
+  margin: 0.5rem 0;
 }
 
 .desc-prof {
-  line-height: 45px;
-  font-size: 19px;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $titleColor;
 }
 
-.subTitle {
-  color: $subTitle;
+.dark-mode .desc-prof {
+  color: $textColorDark;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .row {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .main-content-profile {
@@ -69,37 +71,9 @@
     order: 2;
   }
 
-  .bio-text {
-    font-size: 16px;
-  }
-
   .image-content-profile {
-    margin-left: auto;
-    margin-right: auto;
-    order: 1;
-  }
-
-  .desc-prof {
-    line-height: 30px;
-    font-size: 16px;
-  }
-
-  .profile-image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-  }
-
-  .profile-image:hover {
-    box-shadow: $lightBoxShadow 0 50px 50px -50px;
-    transition: 0.3s ease-out;
-  }
-
-  .prof-title {
-    padding-bottom: 1rem;
-    font-size: 32px;
+    margin: 0 auto;
     text-align: center;
+    order: 1;
   }
 }

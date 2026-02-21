@@ -21,6 +21,7 @@ export default function Blogs() {
           .join(" ")
       : NaN;
   }
+  
   useEffect(() => {
     if (blogSection.displayMediumBlogs === "true") {
       const getProfileData = () => {
@@ -44,6 +45,7 @@ export default function Blogs() {
       getProfileData();
     }
   }, []);
+
   if (!blogSection.display) {
     return null;
   }

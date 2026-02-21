@@ -1,91 +1,88 @@
-/* Change colors in this file to style to your needs on a global level. 
-Certain colors are used for different and multiply types of elements. 
-For greater control over colors visit each components .scss file. */
+/* Global design tokens for a clean, premium portfolio theme */
 
-// button colors
-$buttonColor: #55198b;
-$buttonHover: #8c43ce;
-$topButtonHover: #000;
+// Primary accents
+$buttonColor: #0f766e;
+$buttonHover: #0b5e59;
+$topButtonHover: #0f172a;
 
-// text colors light theme
-$titleColor: #000000;
-$textColor: #000000;
-$subTitle: #868e96;
-$cardSubtitle: #666666;
-$talkCardSubTitle: #7f8287;
-$blogCardTitleColor: #262626;
+// Text colors (light)
+$titleColor: #0f172a;
+$textColor: #1e293b;
+$subTitle: #526077;
+$cardSubtitle: #5f6b80;
+$talkCardSubTitle: #5b6478;
+$blogCardTitleColor: #0b1328;
 
-// text color dark theme
-$textColorDark: #ffffff;
+// Text color (dark)
+$textColorDark: #e6edf7;
 
-// toggle switch colors
-$toggleCheck: #2196f3;
-$toggleSwitchSliderBG: #ccc;
+// Toggle colors
+$toggleCheck: #2563eb;
+$toggleSwitchSliderBG: #c8d2e4;
 
-// githubRepo specific colors
-$githubRepoCardLanguageColorBG: #0000ff;
-$githubRepoCardColor: rgb(88, 96, 105);
-$githubRepoCardRepoCardStatsColor: rgb(106, 115, 125);
-$githubRepoCardRepoNameColor: rgb(36, 41, 46);
-$githubProfileCardLocationTS: #ffebcd;
-$githubProfileCardBorder: #6c63ff;
+// Github card colors
+$githubRepoCardLanguageColorBG: #2563eb;
+$githubRepoCardColor: #54607a;
+$githubRepoCardRepoCardStatsColor: #60708b;
+$githubRepoCardRepoNameColor: #0f172a;
+$githubProfileCardLocationTS: rgba(148, 163, 184, 0.35);
+$githubProfileCardBorder: #1d4ed8;
 
-// light background colors
-$lightBackground1: #fff;
-$lightBackground2: rgb(255, 255, 255);
-$lightBackground3: #f5f2f4;
-$blogCardContainerColor: #586069;
-// dark background colors
-$darkBackground: #171c28;
+// Backgrounds
+$lightBackground1: #f8fafc;
+$lightBackground2: #ffffff;
+$lightBackground3: #eef3ff;
+$blogCardContainerColor: #4e5d74;
+$darkBackground: #020617;
 
-// light theme box shadows
-$lightBoxShadowDark: rgba(0, 0, 0, 0.2);
-$lightBoxShadow: rgba(0, 0, 0, 0.1);
-$lightBoxShadowDarker: rgba(0, 0, 0, 0.3);
+// Shadows
+$lightBoxShadowDark: rgba(15, 23, 42, 0.16);
+$lightBoxShadow: rgba(15, 23, 42, 0.1);
+$lightBoxShadowDarker: rgba(15, 23, 42, 0.28);
+$darkBoxShadow: rgba(148, 163, 184, 0.42);
+$darkBoxShadow2: #f8fbff;
 
-// dark theme box shadows
-$darkBoxShadow: #d9dbdf;
-$darkBoxShadow2: #ffffff;
-
-// linear gradients
+// Gradients
 $experienceCardBlurredDivLG: linear-gradient(
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0.2)
+  180deg,
+  rgba(15, 23, 42, 0.55),
+  rgba(15, 23, 42, 0.22)
 );
 $experienceCardBannerLG: linear-gradient(
-  rgba(0, 0, 0, 0.7),
-  rgba(0, 0, 0, 0.5)
+  120deg,
+  rgba(17, 24, 39, 0.92),
+  rgba(30, 41, 59, 0.82)
 );
 
-// borders
-$progressBarBackground: rgb(243, 239, 239);
-$lightBorder1: rgba(211, 211, 211, 0.397);
-$educationCardBorder: #a9a7f9;
+// Borders
+$progressBarBackground: #dbe4f2;
+$lightBorder1: rgba(148, 163, 184, 0.36);
+$educationCardBorder: #93c5fd;
 
-// hovers
-$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.2);
-$blogCardHoverSmallColor: rgba(255, 255, 255, 0.8);
-$headerHoverBG: #f4f4f4;
-$contactDetailHoverTS: #b5b5b5;
+// Hover colors
+$achievementCertificateCardHoverDark: rgba(148, 163, 184, 0.24);
+$blogCardHoverSmallColor: rgba(255, 255, 255, 0.95);
+$headerHoverBG: rgba(15, 118, 110, 0.08);
+$contactDetailHoverTS: rgba(14, 116, 144, 0.28);
 
-// misc backgrounds
-$progressBarSpanBG: #aaa5ff;
-$iconBackground: #333;
-$appHeaderBG: #282c34;
+// Misc backgrounds
+$progressBarSpanBG: linear-gradient(90deg, #0f766e 0%, #2563eb 100%);
+$iconBackground: #0f172a;
+$appHeaderBG: #0f172a;
 
-// misc colors
-$skillsColor: #645beb;
-$appLink: #09d3ac;
+// Misc colors
+$skillsColor: #0f766e;
+$appLink: #0891b2;
 
-// social media icons
-$faceBook: #3b5998;
-$linkedin: #0e76a8;
-$github: #333;
-$gitlab: #fca326;
+// Social icons
+$faceBook: #1877f2;
+$linkedin: #0a66c2;
+$github: #111827;
+$gitlab: #fc6d26;
 $google: #ea4335;
 $twitter: #1da1f2;
-$medium: #000;
+$medium: #111111;
 $stackoverflow: #f48024;
-$instagram: #c13584;
+$instagram: #d946ef;
 $kaggle: #20beff;
-$phone: #4c4c4c;
+$phone: #334155;

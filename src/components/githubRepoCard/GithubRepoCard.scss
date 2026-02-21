@@ -2,30 +2,34 @@
 
 .repo-card-div {
   color: $githubRepoCardColor;
-  background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  padding: 1.1rem;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
+
 .repo-card-div:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.16);
+  border-color: rgba(37, 99, 235, 0.38);
 }
 
 .repo-stats {
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 0.78rem;
   color: $githubRepoCardRepoCardStatsColor;
+  margin-top: 0.95rem;
 }
 
 .repo-left-stat {
-  -webkit-box-flex: 1;
-  flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .language-color {
@@ -38,32 +42,34 @@
 
 .repo-left-stat span {
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  margin-right: 0.75rem;
+  margin-right: 0.55rem;
+}
+
+.repo-left-stat p,
+.repo-right-stat p {
+  margin: 0;
 }
 
 .repo-name-div {
   display: flex;
   align-items: center;
+  gap: 0.4rem;
 }
 
 .repo-svg {
-  margin-right: 0.5rem;
   min-width: 16px;
 }
 
 .repo-name {
+  color: $githubRepoCardRepoNameColor;
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: $githubRepoCardRepoNameColor;
-  margin-bottom: 0.75rem;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
   overflow: hidden;
-  margin: 0px;
-  height: 30px;
 }
 
 .repo-star-svg {
@@ -71,25 +77,27 @@
 }
 
 .repo-description {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  line-height: 1.6;
+  font-size: 0.92rem;
 }
 
 .dark-card-mode {
-  background-color: $darkBackground;
+  background-color: rgba(8, 14, 30, 0.84);
   color: $textColorDark;
+  border-color: rgba(148, 163, 184, 0.28);
 }
-.dark-card-mode p {
+
+.dark-card-mode p,
+.dark-card-mode .repo-name {
   color: $textColorDark;
 }
 
 .dark-card-mode .repo-svg {
   fill: $textColorDark;
-}
-
-.dark-card-mode:hover {
-  background-color: $buttonColor !important;
-  box-shadow: 0px 0px 16px $darkBoxShadow;
 }

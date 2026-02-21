@@ -23,7 +23,24 @@ const openSourceContributions = [
       "Enhanced project scalability",
       "Improved community engagement"
     ]
-  }
+  },
+  {
+  id: "easy-containers-cli-1",
+  name: "Easy Containers",
+  description: "Developed and published a CLI tool to simplify the usage of the Easy Containers open-source project, improving developer experience and operational efficiency.",
+  role: "CLI Developer & Maintainer",
+  contribution: "Designed and built a user-friendly npm-based CLI that streamlines container setup, management, and configuration, making the open-source project more accessible to developers.",
+  technologies: ["Node.js", "CLI Development", "Docker", "npm", "Open Source"],
+  status: "Open Source Contributor",
+  url: "https://www.npmjs.com/package/easy-containers",
+  achievements: [
+    "Built and published CLI package on npm",
+    "Simplified Docker container orchestration for developers",
+    "Improved usability of the Easy Containers ecosystem",
+    "Enhanced developer onboarding experience"
+  ]
+}
+  
 ];
 
 

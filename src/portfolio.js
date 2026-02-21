@@ -26,6 +26,27 @@ const greeting = {
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
+// Homepage section order and visibility
+// Use `visible: false` to hide a section. Any section without `visible` defaults to visible.
+const homepageSections = [
+  {id: "greeting", label: "About", visible: true, showInNav: true},
+  {id: "skills", label: "Skills", visible: true, showInNav: true},
+  {id: "proficiency", label: "Proficiency", visible: true, showInNav: false},
+  {id: "experience", label: "Experience", visible: true, showInNav: true},
+  {id: "projects", label: "Projects", visible: true, showInNav: true},
+  {id: "opensource", label: "Open Source", visible: true, showInNav: true},
+  {id: "education", label: "Education", visible: true, showInNav: true},
+  {id: "achievements", label: "Achievements", visible: true, showInNav: true},
+  {id: "blogs", label: "Blogs", visible: true, showInNav: true},
+  {
+    id: "startup-projects",
+    label: "Startup Projects",
+    visible: false,
+    showInNav: false
+  },
+  {id: "contact", label: "Contact", visible: true, showInNav: true}
+];
+
 // Social Media Links
 const socialMediaLinks = {
   linkedin: "https://www.linkedin.com/in/the-yash-rajput/",
@@ -238,7 +259,7 @@ const workExperiences = {
         "Led and mentored a cross-functional technical team to ensure smooth event execution and project delivery.",
         "Demonstrated strong leadership by coordinating with multiple stakeholders and driving team success under tight deadlines."
       ]
-    },
+    }
   ]
 };
 
@@ -250,12 +271,14 @@ const openSource = {
   display: true, // Set false to hide this section, defaults to true
   openSourcePRs: {
     title: emoji("Open Source Pull Requests 🚀"),
-    subtitle: "Contributions to open source projects through pull requests, showcasing technical skills and community involvement.",
+    subtitle:
+      "Contributions to open source projects through pull requests, showcasing technical skills and community involvement.",
     display: true, // Set false to hide this section, defaults to true
     prs: [
       {
         title: "Adding PiApproximation Algorithm",
-        description: "Added PiApproximation algorithm to TheAlgorithms repository",
+        description:
+          "Added PiApproximation algorithm to TheAlgorithms repository",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6602",
@@ -264,30 +287,33 @@ const openSource = {
       },
       {
         title: "Added CountBitsFlip Algorithm",
-        description: "Optimized data processing pipeline by implementing efficient caching mechanisms and parallel processing, resulting in 40% faster data processing times.",
+        description:
+          "Optimized data processing pipeline by implementing efficient caching mechanisms and parallel processing, resulting in 40% faster data processing times.",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6603",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6603",
-        status: "merged",
+        status: "merged"
       },
       {
         title: "Added Ground To Ground Projectile Motion Algorithm",
-        description: "Added Ground To Ground Projectile Motion Algorithm to TheAlgorithms repository",
+        description:
+          "Added Ground To Ground Projectile Motion Algorithm to TheAlgorithms repository",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6714",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6714",
-        status: "merged",
+        status: "merged"
       },
       {
         title: "Added Added SimplePendulumRK4 Algorithm",
-        description: "Added SimplePendulumRK4 Algorithm to TheAlgorithms repository",
+        description:
+          "Added SimplePendulumRK4 Algorithm to TheAlgorithms repository",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6800",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6800",
-        status: "merged",
+        status: "merged"
       },
       {
         title: "Adding DampedOscillator Code",
@@ -296,27 +322,30 @@ const openSource = {
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6801",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6801",
-        status: "merged",
+        status: "merged"
       },
       {
         title: "Adding ElasticCollision2D Code",
-        description: "Added ElasticCollision2D Code to TheAlgorithms repository",
+        description:
+          "Added ElasticCollision2D Code to TheAlgorithms repository",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6802",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6802",
-        status: "merged",
+        status: "merged"
       },
       {
-        title: "Implement topological sort with DAG validation and cycle detection",
-        description: "Implemented topological sort with DAG validation and cycle detection to TheAlgorithms repository",
+        title:
+          "Implement topological sort with DAG validation and cycle detection",
+        description:
+          "Implemented topological sort with DAG validation and cycle detection to TheAlgorithms repository",
         repository: "TheAlgorithms",
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6803",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6568",
-        status: "open",
-      },
-      
+        status: "open"
+      }
+
       // {
       //   title: "Added MinCostClimbingStairs Algorithm",
       //   description: "Added comprehensive input validation and sanitization to prevent potential security vulnerabilities in user input handling.",
@@ -369,7 +398,7 @@ const bigProjects = {
       ]
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 // Achievement Section
@@ -382,20 +411,70 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Google Assistant Action",
+      title: "4x ACM-ICPC Regionalist",
       subtitle:
-        "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
-      imageAlt: "Google Assistant Action Logo",
+        "Qualified 4 times as ACM-ICPC Regionalist with best rank of 82 across Amritapuri, Asia Gwalior-Pune, and Kanpur-Mathura regionals.",
+      image: require("./assets/images/icpcLogo.webp"),
+      imageAlt: "ACM ICPC Logo",
       footerLink: [
         {
-          name: "View Google Assistant Action",
-          url: "https://assistant.google.com/services/a/uid/000000100ee688ee?hl=en"
+          name: "View ICPC Profile",
+          url: "https://icpc.global/ICPCID/9FSU20XQS6JS"
         }
       ]
     },
+    {
+      title: "Turtlemint Hackathon 3.0 - 1st Place",
+      subtitle:
+        "Secured 1st place in Turtlemint Hackathon 3.0 by demonstrating innovative problem-solving and strong teamwork.",
+      image: require("./assets/images/hackathonLogo.webp"),
+      imageAlt: "Hackathon Trophy Logo",
+      footerLink: []
+    },
+    {
+      title: "Codeforces Specialist (1438)",
+      subtitle:
+        "Achieved highest rating of 1438 (Specialist) on Codeforces through consistent competitive programming performance.",
+      image: require("./assets/images/codeforcesLogo.webp"),
+      imageAlt: "Codeforces Logo",
+      footerLink: [
+        {
+          name: "View Codeforces Profile",
+          url: "https://codeforces.com/profile/Try_Fail_Learn_Repeat"
+        }
+      ]
+    },
+    {
+      title: "CodeChef 5★ (2003)",
+      subtitle:
+        "Reached highest rating of 2003 (5 Star) on CodeChef, reflecting strong algorithmic and data structure expertise.",
+      image: require("./assets/images/codechefLogo.webp"),
+      imageAlt: "CodeChef Logo",
+      footerLink: [
+        {
+          name: "View CodeChef Profile",
+          url: "https://www.codechef.com/users/far_from_noob"
+        }
+      ]
+    },
+    {
+      title: "Google Kickstart 2022 - Global Rank 349",
+      subtitle:
+        "Achieved Global Rank 349 in Google Kickstart 2022 Round D, competing with top programmers worldwide.",
+      image: require("./assets/images/googleLogo.webp"),
+      imageAlt: "Google Kickstart Logo",
+      footerLink: []
+    },
+    {
+      title: "JEE Top 2% (98.95%)",
+      subtitle:
+        "Secured 98.95 percentile, ranking in the top 2% among 900,000+ candidates in JEE.",
+      image: require("./assets/images/jeeLogo.webp"),
+      imageAlt: "JEE Exam Logo",
+      footerLink: []
+    }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
@@ -438,18 +517,12 @@ const contactInfo = {
   email_address: "yashrajputishu@gmail.com"
 };
 
-// Twitter Section
-const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: false // Set true to display this section, defaults to false
-};
-
-
 const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
   greeting,
+  homepageSections,
   socialMediaLinks,
   splashScreen,
   skillsSection,
@@ -461,7 +534,6 @@ export {
   achievementSection,
   blogSection,
   contactInfo,
-  twitterDetails,
   isHireable,
   resumeSection
 };

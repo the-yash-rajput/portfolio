@@ -1,70 +1,72 @@
 @import "../../_globalColor";
 
-.meter {
-  height: 20px;
-  position: relative;
-  background: $progressBarBackground;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
+.skills-container {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.2rem, 2.6vw, 2rem);
+  align-items: center;
 }
+
+.skills-container > * {
+  min-width: 0;
+}
+
+.skills-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill {
+  line-height: normal;
+}
+
+.skill p {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.45rem;
+}
+
+.meter {
+  height: 0.72rem;
+  position: relative;
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
 .meter > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: $progressBarSpanBG;
-  position: relative;
-  overflow: hidden;
+  border-radius: 999px;
+  background: $progressBarSpanBG;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+  transition: width 0.9s ease;
 }
-.skill {
-  line-height: 3.5vw;
+
+.skills-image {
+  max-width: 420px;
+  margin-left: auto;
 }
-.skill-bars {
-  font-size: 28px;
-  width: 40%;
-}
-.skills-container {
-  display: flex;
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-.skills-container > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
+
 .skills-image > img {
-  margin-left: 80px;
-  max-width: 90%;
+  margin-left: 0;
+  max-width: 100%;
   height: auto;
 }
 
-/* Media Query */
-
-@media (max-width: 1456px) {
-  .skills-bar {
-    line-height: 4rem;
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: 1fr;
   }
+
   .skills-image {
     display: none;
-    order: 2;
   }
 }
 
 @media (max-width: 768px) {
-  .skills-container {
-    flex-direction: column;
-  }
   .skills-bar {
-    line-height: 3rem;
-    margin: 20px;
-  }
-  .skills-image {
-    display: none;
-    order: 2;
+    margin: 0;
   }
 }

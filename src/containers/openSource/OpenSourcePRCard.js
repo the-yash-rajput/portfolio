@@ -1,7 +1,7 @@
 import React from "react";
 import "./OpenSourceCard.scss";
 
-export default function OpenSourcePRCard({ prInfo, isDark }) {
+export default function OpenSourcePRCard({prInfo, isDark}) {
   const {
     title,
     description,
@@ -21,38 +21,50 @@ export default function OpenSourcePRCard({ prInfo, isDark }) {
     }
   };
 
-  const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
-      case 'merged':
-        return '#28a745';
-      case 'open':
-        return '#007bff';
-      case 'closed':
-        return '#dc3545';
+  const getStatusColor = value => {
+    switch (value?.toLowerCase()) {
+      case "merged":
+        return "#16a34a";
+      case "open":
+        return "#2563eb";
+      case "closed":
+        return "#dc2626";
       default:
-        return '#6c757d';
+        return "#64748b";
     }
   };
 
   return (
     <div className={`opensource-container ${isDark ? "opensource-card-shadow" : ""}`}>
-      <div 
+      <div
         className="opensource-card"
         onClick={handleCardClick}
-        style={{ cursor: prUrl ? "pointer" : "default" }}
+        style={{cursor: prUrl ? "pointer" : "default"}}
       >
         <div className="go-corner">
           <div className="go-arrow">→</div>
         </div>
-        
+
         <div className="project-header">
-          <div className="title-status-row" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div className="title-status-row">
             <h3 className={`opensource-title ${isDark ? "small-dark" : ""}`}>
               {title}
             </h3>
-            <span className="status-badge" style={{ backgroundColor: getStatusColor(status), margin: 10, borderRadius: 5 }}>{status}</span>
+            {status && (
+              <span
+                className="status-badge"
+                style={{backgroundColor: getStatusColor(status)}}
+              >
+                {status}
+              </span>
+            )}
           </div>
-
+          {(repository || prNumber) && (
+            <p className={`small meta-text ${isDark ? "small-dark" : ""}`}>
+              {repository || "Repository"}
+              {prNumber ? ` #${prNumber}` : ""}
+            </p>
+          )}
           {date && (
             <p className={`small date-text ${isDark ? "small-dark" : ""}`}>
               {date}
@@ -63,7 +75,7 @@ export default function OpenSourcePRCard({ prInfo, isDark }) {
         <p className={`small description-text ${isDark ? "small-dark" : ""}`}>
           {description}
         </p>
-        
+
         {impact && (
           <div className="impact-section">
             <p className={`small impact-text ${isDark ? "small-dark" : ""}`}>
@@ -89,7 +101,9 @@ export default function OpenSourcePRCard({ prInfo, isDark }) {
           <div className="technologies-section">
             <div className="tech-tags">
               {technologies.map((tech, index) => (
-                <span key={index} className="tech-tag">{tech}</span>
+                <span key={index} className="tech-tag">
+                  {tech}
+                </span>
               ))}
             </div>
           </div>

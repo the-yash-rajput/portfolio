@@ -1,7 +1,7 @@
 import React from "react";
 import "./OpenSourceCard.scss";
 
-export default function OpenSourceCard({ contribution, isDark }) {
+export default function OpenSourceCard({contribution, isDark}) {
   const {
     name,
     description,
@@ -21,33 +21,31 @@ export default function OpenSourceCard({ contribution, isDark }) {
 
   return (
     <div className={`opensource-container ${isDark ? "opensource-card-shadow" : ""}`}>
-      <div 
+      <div
         className="opensource-card"
         onClick={handleCardClick}
-        style={{ cursor: url && url !== "#" ? "pointer" : "default" }}
+        style={{cursor: url && url !== "#" ? "pointer" : "default"}}
       >
         <div className="go-corner">
           <div className="go-arrow">→</div>
         </div>
-        
+
         <div className="project-header">
-          <h3 className={`opensource-title ${isDark ? "small-dark" : ""}`}>
-            {name}
-            {status && (
-              <span className="status-badge">{status}</span>
-            )}
-          </h3>
+          <div className="title-status-row">
+            <h3 className={`opensource-title ${isDark ? "small-dark" : ""}`}>
+              {name}
+            </h3>
+            {status && <span className="status-badge">{status}</span>}
+          </div>
           {role && (
-            <p className={`small role-text ${isDark ? "small-dark" : ""}`}>
-              {role}
-            </p>
+            <p className={`small role-text ${isDark ? "small-dark" : ""}`}>{role}</p>
           )}
         </div>
 
         <p className={`small description-text ${isDark ? "small-dark" : ""}`}>
           {description}
         </p>
-        
+
         {contributionText && (
           <div className="contribution-section">
             <p className={`small contribution-text ${isDark ? "small-dark" : ""}`}>
@@ -66,9 +64,13 @@ export default function OpenSourceCard({ contribution, isDark }) {
 
         {technologies && technologies.length > 0 && (
           <div className="technologies-section">
-            <p className={`small tech-text ${isDark ? "small-dark" : ""}`}>
-              <strong>Technologies:</strong> {technologies.join(" • ")}
-            </p>
+            <div className="tech-tags">
+              {technologies.map((tech, index) => (
+                <span key={index} className="tech-tag">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </div>

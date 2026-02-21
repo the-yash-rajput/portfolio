@@ -1,27 +1,39 @@
 @import "../../_globalColor";
 
-.small-dark {
-  color: $textColorDark !important;
+.blog-container {
+  display: block;
+  border-radius: 16px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  min-height: 220px;
 }
 
-.blog-container {
-  border-radius: 10px;
-  color: $blogCardContainerColor;
-  background-color: $lightBackground1;
-  box-shadow: 0 0 36px $lightBoxShadow;
-  cursor: pointer;
-  height: 200px;
+.blog-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.16);
+  border-color: rgba(37, 99, 235, 0.38);
+}
+
+.blog-card {
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  padding: 1rem 1rem 1.1rem;
 }
 
 .blog-title {
   color: $blogCardTitleColor;
-  font-size: 1.375rem;
-  line-height: 24px;
-  font-weight: 700;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 14px;
-  margin-top: 32px;
+  font-size: 1.04rem;
+  line-height: 1.5;
+  font-weight: 800;
+  margin: 0;
+  padding-right: 1.4rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -29,121 +41,43 @@
 }
 
 .small {
-  font-size: 1.063rem;
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  line-height: 1.5rem;
+  line-height: 1.65;
   color: $cardSubtitle;
-  padding: 0px 20px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  margin: 0px;
 }
 
 .go-corner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  background-color: $buttonColor;
-  border-radius: 0 4px 0 32px;
+  top: 0.65rem;
+  right: 0.65rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 118, 110, 0.12);
 }
 
 .go-arrow {
-  margin-top: -4px;
-  margin-right: -4px;
-  color: $textColorDark;
-  font-family: courier, sans;
+  color: #0f766e;
+  font-weight: 800;
+  line-height: 1;
 }
 
-.blog-card {
-  display: block;
-  position: relative;
-  background-color: transparent;
-  border-radius: 4px;
-  text-decoration: none;
-  z-index: 0;
-  overflow: hidden;
-  height: 100%;
+.small-dark {
+  color: $textColorDark !important;
 }
 
-.blog-card::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -16px;
-  right: -16px;
-  background: $buttonColor;
-  height: 32px;
-  width: 32px;
-  border-radius: 32px;
-  transform: scale(1);
-  transform-origin: 50% 50%;
-  transition: transform 0.4s ease-out;
+.dark-mode.blog-container {
+  background: rgba(8, 14, 30, 0.84);
 }
 
-.blog-card:hover::before {
-  transform: scale(30);
-}
-
-.blog-card:hover > .small {
-  transition: all 0.3s ease-out;
-  color: $blogCardHoverSmallColor;
-}
-
-.blog-card:hover > h3 {
-  transition: all 0.3s ease-out;
-  color: $darkBoxShadow2;
-}
-
-@media screen and (max-width: 480px) and (min-width: 300px),
-  (min-width: 925px) and (max-width: 1024px),
-  (min-width: 1405px) and (max-width: 1550px) {
-  .blog-card:hover::before {
-    transform: scale(30);
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 675px),
-  (min-width: 1025px) and (max-width: 1404px),
-  (min-width: 1551px) {
-  .blog-card:hover::before {
-    transform: scale(40);
-  }
-  .blog-card::before {
-    transition: transform 0.45s ease-out;
-  }
-}
-
-@media screen and (min-width: 675px) and (max-width: 860px) {
-  .blog-card:hover::before {
-    transform: scale(50);
-  }
-  .blog-card::before {
-    transition: transform 0.5s ease-out;
-  }
-}
-
-@media screen and (min-width: 860px) and (max-width: 924px) {
-  .blog-card:hover::before {
-    transform: scale(60);
-  }
-  .blog-card::before {
-    transition: transform 0.5s ease-out;
-  }
-}
-
-@media screen and (max-width: 480px) and (min-width: 300px) {
-  .blog-title {
-    font-size: 1.125rem;
-  }
-}
 .blog-card-shadow {
-  box-shadow: 1px 0px 20px $darkBoxShadow2;
+  box-shadow: none;
 }

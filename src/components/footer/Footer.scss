@@ -3,13 +3,14 @@
 .footer-text {
   text-align: center;
   color: $subTitle !important;
-}
-
-.dark-mode {
-  color: $textColorDark !important;
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  padding: 1.1rem 1rem 2rem;
 }

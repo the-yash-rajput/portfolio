@@ -1,95 +1,81 @@
 @import "../../_globalColor";
 
 .social-media-div {
-  font-size: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
 }
 
 .icon-button {
-  margin-bottom: 10px;
+  display: inline-flex;
+  text-decoration: none;
 }
 
 .icon-button i {
-  color: $textColorDark;
-  border-radius: 2.6rem;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.3rem;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  margin: 0 5px;
-  position: relative;
-  text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 2.6rem;
-  margin-bottom: 10px;
-  transition: 0.2s ease-in;
+  width: 2.45rem;
+  height: 2.45rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-size: 1rem;
+  color: #f8fafc;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.16);
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.icon-button:hover i {
+  transform: translateY(-2px);
+  filter: saturate(1.12);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.24);
 }
 
 .facebook i {
-  background-color: $faceBook;
+  background: $faceBook;
 }
 
 .linkedin i {
-  background-color: $linkedin;
+  background: $linkedin;
 }
 
 .github i {
-  background-color: $github;
+  background: $github;
 }
 
 .gitlab i {
-  background-color: $gitlab;
+  background: $gitlab;
 }
 
 .google i {
-  background-color: $google;
+  background: $google;
 }
 
 .twitter i {
-  background-color: $twitter;
+  background: $twitter;
 }
 
 .medium i {
-  background-color: $medium;
+  background: $medium;
 }
 
 .stack-overflow i {
-  background-color: $stackoverflow;
+  background: $stackoverflow;
 }
 
 .kaggle i {
-  background-color: $kaggle;
+  background: $kaggle;
 }
 
 .instagram i {
-  background-color: $instagram;
+  background: $instagram;
 }
 
 .phone i {
-  background-color: $phone;
+  background: $phone;
 }
 
-/* Hover Transition */
-.twitter i:hover,
-.google i:hover,
-.gitlab i:hover,
-.github i:hover,
-.linkedin i:hover,
-.facebook i:hover,
-.instagram i:hover,
-.stack-overflow i:hover,
-.kaggle i:hover,
-.phone i:hover,
-.medium i:hover {
-  background-color: $textColor;
-}
-
-/* Media Query */
 @media (max-width: 768px) {
   .social-media-div {
-    text-align: center;
+    justify-content: center;
   }
 }

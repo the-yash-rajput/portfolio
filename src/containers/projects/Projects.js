@@ -5,7 +5,6 @@ import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
 
-
 export default function Projects() {
   const GithubRepoCard = lazy(() =>
     import("../../components/githubRepoCard/GithubRepoCard")
@@ -13,7 +12,6 @@ export default function Projects() {
   const FailedLoading = () => null;
   const renderLoader = () => <Loading />;
   const [repo, setrepo] = useState([]);
-  // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
 
   useEffect(() => {
@@ -41,14 +39,12 @@ export default function Projects() {
   function setrepoFunction(array) {
     setrepo(array);
   }
-  if (
-    !(typeof repo === "string" || repo instanceof String) &&
-    openSource.display
-  ) {
+
+  if (!(typeof repo === "string" || repo instanceof String) && openSource.display) {
     return (
       <Suspense fallback={renderLoader()}>
-        <div className="main" id="opensource">
-          <h1 className="project-title">Git Hub Open Source Projects</h1>
+        <div className="main" id="projects">
+          <h1 className="project-title">Projects</h1>
           <div className="repo-cards-div-main">
             {repo.map((v, i) => {
               if (!v) {
@@ -56,9 +52,7 @@ export default function Projects() {
                   `Github Object for repository number : ${i} is undefined`
                 );
               }
-              return (
-                <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
-              );
+              return <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />;
             })}
           </div>
           <Button
@@ -70,7 +64,7 @@ export default function Projects() {
         </div>
       </Suspense>
     );
-  } else {
-    return <FailedLoading />;
   }
+
+  return <FailedLoading />;
 }

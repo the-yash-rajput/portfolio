@@ -2,35 +2,25 @@ import React from "react";
 import "./BlogCard.scss";
 
 export default function BlogCard({blog, isDark}) {
-  function openUrlInNewTab(url, name) {
-    if (!url) {
-      console.log(`URL for ${name} not found`);
-      return;
-    }
-    var win = window.open(url, "_blank");
-    win.focus();
+  if (!blog.url) {
+    return null;
   }
 
   return (
-    <div onClick={() => openUrlInNewTab(blog.url, blog.title)}>
-      <div className={isDark ? "blog-container dark-mode" : "blog-container"}>
-        <a
-          className={
-            isDark ? "dark-mode blog-card blog-card-shadow" : "blog-card"
-          }
-          href="#blog"
-        >
-          <h3 className={isDark ? "small-dark blog-title" : "blog-title"}>
-            {blog.title}
-          </h3>
-          <p className={isDark ? "small-dark small" : "small"}>
-            {blog.description}
-          </p>
-          <div className="go-corner">
-            <div className="go-arrow">→</div>
-          </div>
-        </a>
+    <a
+      className={`blog-container ${isDark ? "dark-mode" : ""}`}
+      href={blog.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Read ${blog.title}`}
+    >
+      <div className={isDark ? "dark-mode blog-card blog-card-shadow" : "blog-card"}>
+        <h3 className={isDark ? "small-dark blog-title" : "blog-title"}>{blog.title}</h3>
+        <p className={isDark ? "small-dark small" : "small"}>{blog.description}</p>
+        <div className="go-corner">
+          <div className="go-arrow">→</div>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }

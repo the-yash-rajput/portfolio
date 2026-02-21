@@ -3,75 +3,87 @@
 .card-image {
   max-width: 100%;
   height: auto;
-  width: 250px;
+  width: 180px;
 }
+
 .card-title {
   color: $titleColor;
-  font-size: 1.375rem;
-  line-height: 24px;
-  font-weight: 700;
-  margin: 15px 0 0 0;
+  font-size: 1.06rem;
+  line-height: 1.45;
+  font-weight: 800;
+  margin: 0;
 }
+
 .card-subtitle {
   color: $cardSubtitle;
-  font-size: 1.063rem;
-  line-height: 1.5rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-top: 0.45rem;
 }
+
 .certificate-card {
-  background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.dark-mode.certificate-card {
+  background: rgba(8, 14, 30, 0.84);
+}
+
 .certificate-detail-div {
   text-align: center;
 }
+
 .certificate-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.16);
 }
+
 .dark-mode.certificate-card:hover {
-  box-shadow: $achievementCertificateCardHoverDark 0px 20px 30px -10px;
+  box-shadow: 0 22px 44px rgba(2, 6, 23, 0.5);
 }
+
 .certificate-image-div {
   position: relative;
-  height: 250px;
+  height: 180px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .achievement-cards-div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
+
 .certificate-card-footer {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 0.4rem;
 }
+
 .certificate-card-footer span.certificate-tag {
-  background: $buttonColor;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 4px;
+  background: rgba(15, 118, 110, 0.12);
+  color: #0f766e;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 999px;
   display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
+  font-size: 0.72rem;
+  font-weight: 700;
   justify-content: center;
-  white-space: nowrap;
-  line-height: 1.5;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0 0.75em;
+  margin: 0 0.35rem 0.35rem 0;
+  padding: 0.28rem 0.65rem;
   cursor: pointer;
-  transition: 0.2s ease-in;
 }
+
 span.certificate-tag:hover {
-  background: $buttonHover;
+  background: rgba(15, 118, 110, 0.2);
 }

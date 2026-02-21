@@ -10,15 +10,29 @@ import Blogs from "./blogs/Blogs";
 import Footer from "../components/footer/Footer";
 import Education from "./education/Education";
 import ScrollToTopButton from "./topbutton/Top";
-import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
+import Projects from "./projects/Projects";
+import {homepageSections, splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import {useLocalStorage} from "../hooks/useLocalStorage";
 import OpenSourceContributions from "./openSource/OpenSourec";
 
 import "./Main.scss";
+
+const sectionComponentMap = {
+  greeting: Greeting,
+  skills: Skills,
+  proficiency: StackProgress,
+  experience: WorkExperience,
+  projects: Projects,
+  opensource: OpenSourceContributions,
+  education: Education,
+  achievements: Achievement,
+  blogs: Blogs,
+  "startup-projects": StartupProject,
+  contact: Profile
+};
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -42,26 +56,24 @@ const Main = () => {
     setIsDark(!isDark);
   };
 
+  const sectionsToRender = homepageSections
+    .filter(
+      section => section.visible !== false && sectionComponentMap[section.id]
+    )
+    .map(section => {
+      const SectionComponent = sectionComponentMap[section.id];
+      return <SectionComponent key={section.id} />;
+    });
+
   return (
-    <div className={isDark ? "dark-mode" : null}>
+    <div className={isDark ? "dark-mode app-root" : "app-root"}>
       <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
         {isShowingSplashAnimation && splashScreen.enabled ? (
           <SplashScreen />
         ) : (
           <>
             <Header />
-            <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <WorkExperience />
-              {/* <Projects /> */}
-            <Blogs />
-            <OpenSourceContributions />
-            <StartupProject />
-            <Achievement />
-            <Twitter />
-            <Profile />
+            <main className="site-main">{sectionsToRender}</main>
             <Footer />
             <ScrollToTopButton />
           </>

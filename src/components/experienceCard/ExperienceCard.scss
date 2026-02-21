@@ -1,23 +1,26 @@
 @import "../../_globalColor";
 
-.experience-card {
+.experience-card,
+.experience-card-dark {
   position: relative;
   background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.11);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .experience-card-dark {
-  position: relative;
-  background-color: $darkBackground;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
+  background-color: rgba(8, 14, 30, 0.88);
 }
 
-.experience-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+.experience-card:hover,
+.experience-card-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
+  border-color: rgba(59, 130, 246, 0.38);
 }
 
 .experience-banner {
@@ -25,13 +28,8 @@
   background-repeat: no-repeat;
   background-size: 150%;
   background: $experienceCardBannerLG;
-  border-radius: 10px 10px 0px 0px;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -o-filter: blur(0px);
-  -ms-filter: blur(0px);
-  filter: blur(0px);
-  height: 11rem;
+  border-radius: 18px 18px 0 0;
+  height: 8.4rem;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -40,22 +38,17 @@
 .experience-blurred_div {
   position: absolute;
   background: $experienceCardBlurredDivLG;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
   filter: blur(5px);
-  height: 11rem;
+  height: 8.4rem;
   top: 0;
   left: 0;
   width: 100%;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 18px 18px 0 0;
 }
 
 .experience-div-company {
   position: absolute;
-  background: transparent;
-  height: 9rem;
+  height: 7rem;
   top: 0;
   left: 0;
   width: 100%;
@@ -66,15 +59,15 @@
 
 .experience-text-company {
   text-align: center;
-  padding: 1.5rem;
+  padding: 0.8rem 1rem;
   margin: 0;
   color: $lightBackground1;
-  font-size: 25px;
-  text-align: center;
-  font-weight: 700;
+  font-size: 1.22rem;
+  font-weight: 800;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  max-width: calc(100% - 2rem);
 }
 
 .experience-roundedimg {
@@ -82,75 +75,67 @@
   object-fit: cover;
   left: 0;
   right: 0;
-  top: 7rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 8rem;
-  height: 8rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
-  border-radius: 50%;
+  top: 5.8rem;
+  margin: 0 auto;
+  width: 5.6rem;
+  height: 5.6rem;
+  box-shadow: 0 0.4rem 0.9rem rgba(15, 23, 42, 0.36);
+  border-radius: 18px;
+  background: #fff;
+  padding: 0.3rem;
 }
 
 .experience-text-role {
   text-align: center;
-  color: $textColor;
-  font-weight: 700;
-  font-size: 25px;
-  margin: 0px;
-  padding-top: 1.5rem;
-  line-height: normal;
+  color: $titleColor;
+  font-weight: 800;
+  font-size: 1.18rem;
+  margin: 0;
+  padding-top: 0.55rem;
+  line-height: 1.2;
 }
+
 .dark-mode-text {
   color: $textColorDark !important;
 }
+
 .experience-text-date {
   text-align: center;
-  color: $textColor;
-  font-size: 20px;
-  margin: 0px;
-  padding-top: 1rem;
-  font-weight: 600;
+  color: $subTitle;
+  font-size: 0.95rem;
+  margin: 0;
+  padding-top: 0.55rem;
+  font-weight: 700;
 }
 
 .experience-text-desc {
   text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .experience-text-details {
-  padding: 1.5rem;
-  margin-top: 2rem;
+  padding: 1.1rem;
+  margin-top: 1.95rem;
 }
 
-/* Media Query */
+.experience-text-details ul {
+  margin: 0.85rem 0 0;
+  padding-left: 1.1rem;
+}
 
-@media (max-width: 1380px) {
-  .experience-text-role {
-    padding-top: 0.5rem;
-    font-size: 22px;
-  }
-  .experience-text-company {
-    font-size: 22px;
-  }
-  .experience-text-date {
-    font-size: 18px;
-  }
-  .experience-roundedimg {
-    width: 6.5rem;
-    height: 6.5rem;
-  }
+.experience-text-details li {
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
+  font-size: 0.91rem;
 }
 
 @media (max-width: 768px) {
-  .experience-text-role {
-    font-size: 22px;
-  }
   .experience-text-company {
-    font-size: 22px;
+    font-size: 1.12rem;
   }
-  .experience-text-date {
-    font-size: 18px;
-  }
-  .experience-text-desc {
-    font-size: 16px;
+
+  .experience-text-role {
+    font-size: 1.08rem;
   }
 }
