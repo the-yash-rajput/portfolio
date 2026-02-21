@@ -4,7 +4,6 @@ import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
 import StackProgress from "./skillProgress/skillProgress";
 import WorkExperience from "./workExperience/WorkExperience";
-import StartupProject from "./StartupProjects/StartupProject";
 import Achievement from "./achievement/Achievement";
 import Blogs from "./blogs/Blogs";
 import Footer from "../components/footer/Footer";
@@ -30,7 +29,6 @@ const sectionComponentMap = {
   education: Education,
   achievements: Achievement,
   blogs: Blogs,
-  "startup-projects": StartupProject,
   contact: Profile
 };
 

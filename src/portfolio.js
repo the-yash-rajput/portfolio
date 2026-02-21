@@ -276,6 +276,16 @@ const openSource = {
     display: true, // Set false to hide this section, defaults to true
     prs: [
       {
+        title: "Enhancing Easy Containers CLI Functionality",
+        description:
+          "Contributed improvements and feature enhancements to the Easy Containers project, optimizing CLI usability and developer workflow.",
+        repository: "easy-containers",
+        repositoryUrl: "https://github.com/arjavdongaonkar/easy-containers",
+        prNumber: "7",
+        prUrl: "https://github.com/arjavdongaonkar/easy-containers/pull/7",
+        status: "merged"
+      },
+      {
         title: "Adding PiApproximation Algorithm",
         description:
           "Added PiApproximation algorithm to TheAlgorithms repository",
@@ -343,7 +353,7 @@ const openSource = {
         repositoryUrl: "https://github.com/TheAlgorithms",
         prNumber: "6803",
         prUrl: "https://github.com/TheAlgorithms/Java/pull/6568",
-        status: "open"
+        status: "close"
       }
 
       // {
@@ -366,39 +376,6 @@ const openSource = {
       // }
     ]
   }
-};
-
-// Some big projects you have worked on
-
-const bigProjects = {
-  title: "Big Projects",
-  subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
-  projects: [
-    {
-      // image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Saayahealth",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://saayahealth.com/"
-        }
-        //  you can add extra buttons here.
-      ]
-    },
-    {
-      // image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://nextu.se/"
-        }
-      ]
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
 };
 
 // Achievement Section
@@ -424,7 +401,7 @@ const achievementSection = {
       ]
     },
     {
-      title: "Turtlemint Hackathon 3.0 - 1st Place",
+      title: "Turtlemint Hackathon 3.0",
       subtitle:
         "Secured 1st place in Turtlemint Hackathon 3.0 by demonstrating innovative problem-solving and strong teamwork.",
       image: require("./assets/images/hackathonLogo.webp"),
@@ -432,7 +409,7 @@ const achievementSection = {
       footerLink: []
     },
     {
-      title: "Codeforces Specialist (1438)",
+      title: "Codeforces Specialist",
       subtitle:
         "Achieved highest rating of 1438 (Specialist) on Codeforces through consistent competitive programming performance.",
       image: require("./assets/images/codeforcesLogo.webp"),
@@ -445,7 +422,7 @@ const achievementSection = {
       ]
     },
     {
-      title: "CodeChef 5★ (2003)",
+      title: "CodeChef 5 ★",
       subtitle:
         "Reached highest rating of 2003 (5 Star) on CodeChef, reflecting strong algorithmic and data structure expertise.",
       image: require("./assets/images/codechefLogo.webp"),
@@ -458,7 +435,7 @@ const achievementSection = {
       ]
     },
     {
-      title: "Google Kickstart 2022 - Global Rank 349",
+      title: "Google Kickstart 2022",
       subtitle:
         "Achieved Global Rank 349 in Google Kickstart 2022 Round D, competing with top programmers worldwide.",
       image: require("./assets/images/googleLogo.webp"),
@@ -466,7 +443,7 @@ const achievementSection = {
       footerLink: []
     },
     {
-      title: "JEE Top 2% (98.95%)",
+      title: "JEE Top 2% ",
       subtitle:
         "Secured 98.95 percentile, ranking in the top 2% among 900,000+ candidates in JEE.",
       image: require("./assets/images/jeeLogo.webp"),
@@ -483,20 +460,6 @@ const blogSection = {
   subtitle:
     "Lover of code, ideas, and learning — I craft and share so we can all grow together.",
   displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
-  blogs: [
-    {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
-      description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
-    }
-  ],
   display: true // Set false to hide this section, defaults to true
 };
 
@@ -530,7 +493,6 @@ export {
   techStack,
   workExperiences,
   openSource,
-  bigProjects,
   achievementSection,
   blogSection,
   contactInfo,
