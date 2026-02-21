@@ -12,6 +12,7 @@
   --chip-bg: rgba(15, 118, 110, 0.09);
 
   min-height: 100vh;
+  display: flow-root;
   background: var(--page-bg);
   color: var(--text-primary);
   transition: background 0.35s ease, color 0.35s ease;

@@ -33,7 +33,7 @@ const homepageSections = [
   {id: "skills", label: "Skills", visible: true, showInNav: false},
   {id: "proficiency", label: "Proficiency", visible: true, showInNav: false},
   {id: "experience", label: "Experience", visible: false, showInNav: false},
-  {id: "projects", label: "Projects", visible: true, showInNav: true},
+  {id: "projects", label: "Projects", visible: false, showInNav: false},
   {id: "opensource", label: "Open Source", visible: true, showInNav: true},
   {id: "blogs", label: "Blogs", visible: true, showInNav: true},
   {id: "education", label: "Education", visible: true, showInNav: true},
