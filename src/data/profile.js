@@ -38,8 +38,8 @@ export const socials = [
 
 export const hero = {
   eyebrow: `${person.role} · ${person.location}`,
-  headline: ["I build agent systems", "that survive production."],
-  lede: "Senior engineer at Turtlemint. I ship LLM agents, browser automation and the distributed backends underneath them — the part where latency, cost and failure modes are somebody's problem.",
+  headline: ["I design systems", "that survive production."],
+  lede: "Senior engineer at Turtlemint. Four years of designing systems that hold — event-driven microservices, a reconciliation engine, browser automation, and now the agent platform other teams build on.",
   status: "Open to AI engineering roles"
 };
 
