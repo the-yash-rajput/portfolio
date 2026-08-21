@@ -9,7 +9,6 @@ export default function Footer() {
         <p className="mono footer__note">
           {person.name} · {person.location}
         </p>
-        <p className="mono footer__note">React · Canvas 2D · no UI framework</p>
         <a className="mono footer__top" href="#top">
           Back to top ↑
         </a>
