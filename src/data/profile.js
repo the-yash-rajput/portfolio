@@ -39,7 +39,7 @@ export const socials = [
 export const hero = {
   eyebrow: `${person.role} · ${person.location}`,
   headline: ["I build agent systems", "that survive production."],
-  lede: "Senior engineer at Turtlemint. I ship LLM agents, retrieval pipelines and the distributed backends underneath them — the part where latency, cost and failure modes are somebody's problem.",
+  lede: "Senior engineer at Turtlemint. I ship LLM agents, browser automation and the distributed backends underneath them — the part where latency, cost and failure modes are somebody's problem.",
   status: "Open to AI engineering roles"
 };
 
@@ -138,12 +138,17 @@ export const agentGraph = {
 export const focus = {
   eyebrow: "current work",
   title: "What I'm building",
-  lede: "Four things I've spent the last year on, all of them running against real traffic rather than a notebook.",
+  lede: "What I've spent the last year on, all of it running against real traffic rather than a notebook.",
   cards: [
     {
-      title: "Agent orchestration",
-      body: "Workflow agents as explicit graphs — LLM, Python, API, RAG and queue nodes wired with conditional edges. Deterministic routing, replayable state, and a debug loop that tells you which node lied.",
+      title: "Agent Crafter",
+      body: "A platform where product teams compose AI agents through a UI instead of a ticket. Workflow agents as explicit graphs — LLM, Python, API, RAG and queue nodes wired with conditional edges — with extensible adapters, replayable state, and a debug loop that tells you which node lied.",
       stack: ["LangGraph", "LangChain", "Python", "FastAPI"]
+    },
+    {
+      title: "Browser agents",
+      body: "An in-house browser-automation framework in the lineage of Browser Use and Computer Use: DOM-level interaction, context-aware navigation and real-time action tracing, driving natural-language tasks across multi-session flows — on infrastructure built for concurrent runs per user.",
+      stack: ["Playwright", "Vision LLMs", "Java", "Python"]
     },
     {
       title: "Document & vision extraction",
@@ -200,28 +205,76 @@ const jobs = [
     role: "Senior Software Engineer",
     org: "Turtlemint",
     logo: require("../assets/images/tmlogo.png"),
-    period: "Dec 2022 — Present",
+    period: "Apr 2025 — Present",
     summary:
-      "Designing agent workflows and the microservices they sit on, across insurance distribution systems used by hundreds of thousands of advisors.",
+      "Building the AI layer the rest of the company builds on — an agent platform and an in-house browser-automation framework, both running against production traffic.",
     bullets: [
-      "Build LLM workflow agents — document classification, structured extraction and RAG nodes — and the message-envelope plumbing that feeds them.",
-      "Architected and delivered scalable full-stack services, from API gateway and auth to payments integration.",
-      "Led the RPA migration to Java + Playwright, saving roughly ₹1 Cr a year in infra and licensing.",
-      "Shipped Zendesk attachment redaction, cutting storage 66% and $28K+ annually.",
-      "Built a Recon Management Service for fast, accurate reconciliation across large datasets."
+      "Building Agent Crafter — a platform where product teams compose and deploy AI agents through a UI, powered by LangGraph with extensible adapters.",
+      "Led an in-house AI browser-automation framework, inspired by Browser Use and Anthropic's Computer Use: DOM-level interaction, context-aware navigation and real-time action tracing.",
+      "Designed its infrastructure for concurrent multi-tasking per user — a Java controller service, a Python agent service orchestrating the browser, and a front-end.",
+      "Own the production half: queue-backed workers, idempotent retries, token and latency budgets, prompt versioning, evals and traces you can read at 3am."
+    ]
+  },
+  {
+    role: "Software Engineer",
+    org: "Turtlemint",
+    logo: require("../assets/images/tmlogo.png"),
+    period: "Jul 2023 — Mar 2025",
+    summary:
+      "Full-stack across backend, frontend and DevOps — 10+ services shipped, plus the staging, Kubernetes manifests and pipelines under them.",
+    bullets: [
+      "Led the RPA migration to Java + Playwright, cutting infra and UI Path licensing — ₹1 Cr+ saved a year.",
+      "Shipped Zendesk attachment redaction, cutting storage from 3TB to under 1TB and $28K+ annually.",
+      "Built the Recon Management Service for fast, accurate reconciliation across CSV/XLSX files and database adaptors.",
+      "Contributed to TM-contest, Auth Service, API Gateway rules and filters, Sales-CRM backend and payment integrations."
+    ]
+  },
+  {
+    role: "Tech Intern",
+    org: "Turtlemint",
+    logo: require("../assets/images/tmlogo.png"),
+    period: "Dec 2022 — Jul 2023",
+    summary:
+      "Internal platforms — onboarding, product management and integrations — converted to full-time off the back of it.",
+    bullets: [
+      "Designed and shipped Onboard-Upgrade: onboarding plus a training framework giving new joiners and managers real-time progress.",
+      "Implemented Google authentication in Auth Service for internal teams.",
+      "Built frontend and backend features across the product management and Integration platforms."
+    ]
+  },
+  {
+    role: "Problem Curator",
+    org: "iMocha",
+    logo: null,
+    period: "Oct 2021 — Jul 2023 · part-time",
+    summary:
+      "External contributor writing the algorithmic problems companies screen candidates with.",
+    bullets: [
+      "Created data-structure and algorithm problems end to end — statement, constraints, reference solution.",
+      "Generated test cases and tuned them so brute force fails and the intended complexity passes."
     ]
   },
   {
     role: "Chief Technical Secretary",
-    org: "PICT Computer Society Board",
+    org: "PICT CSI Student Branch",
     logo: require("../assets/images/pcsb.png"),
     period: "Jul 2021 — Mar 2023",
     summary:
       "Ran the technical arm of the student board — events, mentoring, and a team that had to ship on a deadline it didn't set.",
     bullets: [
-      "Organised and moderated Reverse Coding and CodeStrike under Xenia.",
+      "Technical Head for A.Y. 2021-22; organised and moderated Reverse Coding and CodeStrike under Xenia.",
       "Delivered DSA sessions for juniors, with PICT Algorithms Club and ACM Student Chapter.",
       "Led a cross-functional technical team across multiple stakeholders and tight deadlines."
+    ]
+  },
+  {
+    role: "Technical Intern",
+    org: "Kode IT Solutions",
+    logo: null,
+    period: "Aug 2021 — Sep 2021",
+    summary: "First engineering job — shipping React components into a live product.",
+    bullets: [
+      "Built new components and extended an existing product using ReactJS, TypeScript and REST APIs."
     ]
   }
 ];
@@ -230,7 +283,7 @@ export const experience = {
   // ponytail: derived so it can't go stale; bump the date if the first job changes
   eyebrow: `${Math.floor(
     (Date.now() - Date.parse("2022-12-01")) / 3.15576e10
-  )}+ yrs · ${jobs.length} orgs`,
+  )}+ yrs · ${new Set(jobs.map(j => j.org)).size} orgs`,
   title: "Where I've worked",
   jobs
 };
@@ -293,9 +346,9 @@ export const stack = {
 };
 
 export const openSource = {
-  eyebrow: "8 PRs · 7 merged",
+  eyebrow: "browser-use core team · 8 PRs",
   title: "Open source",
-  lede: "Mostly algorithms and developer tooling, in public.",
+  lede: "Contributed to browser-use, the open-source browser-automation agent framework, and was invited onto the core team — where I led the generic multi-LLM model layer that let the project run across providers. The rest is algorithms and developer tooling, in public.",
   prs: [
     {
       title: "Enhance Easy Containers CLI functionality",

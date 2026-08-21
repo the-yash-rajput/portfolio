@@ -16,7 +16,9 @@ function Job({job, index}) {
         <p className="mono job__period">{job.period}</p>
         <h3 className="job__role">{job.role}</h3>
         <p className="job__org">
-          <img src={job.logo} alt="" className="job__logo" loading="lazy" />
+          {job.logo && (
+            <img src={job.logo} alt="" className="job__logo" loading="lazy" />
+          )}
           {job.org}
         </p>
         <p className="job__summary">{job.summary}</p>
@@ -39,7 +41,7 @@ export default function Experience() {
     >
       <div className="jobs">
         {experience.jobs.map((job, i) => (
-          <Job job={job} index={i} key={job.org} />
+          <Job job={job} index={i} key={`${job.org}-${job.period}`} />
         ))}
       </div>
     </Section>
