@@ -1,0 +1,39 @@
+.sgrid {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.sgroup {
+  display: grid;
+  gap: 1rem;
+}
+
+.sgroup__name {
+  color: var(--mist-dim);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+/* the first group is the one the reader came for */
+.sgroup:first-child .sgroup__name {
+  color: var(--signal);
+  border-bottom-color: color-mix(in srgb, var(--signal) 40%, transparent);
+}
+
+.sgroup:first-child .chip {
+  border-color: color-mix(in srgb, var(--signal) 28%, var(--line));
+  color: var(--chalk);
+}
+
+.sgroup__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+@media (min-width: 760px) {
+  .sgrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+  }
+}

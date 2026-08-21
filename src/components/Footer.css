@@ -1,0 +1,27 @@
+.footer {
+  border-top: 1px solid var(--line-soft);
+  padding-block: 2.25rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer__note {
+  color: var(--mist-dim);
+  letter-spacing: 0.12em;
+}
+
+.footer__top {
+  color: var(--mist);
+  letter-spacing: 0.12em;
+  transition: color 0.25s var(--ease);
+}
+
+.footer__top:hover {
+  color: var(--signal);
+}

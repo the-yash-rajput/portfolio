@@ -1,0 +1,71 @@
+/* Design tokens — blueprint ink ground, blueprint blue structure, signal amber for anything active. */
+
+:root {
+  /* surface */
+  --ink: #080c16;
+  --ink-raised: #0e1424;
+  --ink-sunk: #05080f;
+  --line: #1b2740;
+  --line-soft: #131c2e;
+
+  /* text */
+  --chalk: #e9eef8;
+  --mist: #8695b4;
+  --mist-dim: #5b6883;
+
+  /* accents — blue is structure, amber is signal */
+  --trace: #5b8def;
+  --trace-soft: rgba(91, 141, 239, 0.14);
+  --signal: #ffb020;
+  --signal-soft: rgba(255, 176, 32, 0.13);
+  --merge: #7ee0a8;
+
+  /* logos ship dark-on-transparent, so they always sit on a light plate */
+  --plate: #ffffff;
+
+  /* grid overlay */
+  --grid: rgba(91, 141, 239, 0.055);
+
+  /* type */
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --wide: 118; /* Archivo wdth axis for display type */
+
+  /* scale */
+  --step--1: clamp(0.75rem, 0.72rem + 0.15vw, 0.82rem);
+  --step-0: clamp(0.95rem, 0.91rem + 0.2vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.06rem + 0.45vw, 1.4rem);
+  --step-2: clamp(1.3rem, 1.15rem + 0.7vw, 1.7rem);
+  --step-3: clamp(1.85rem, 1.4rem + 2.1vw, 3rem);
+  --step-4: clamp(2.4rem, 1.5rem + 3.9vw, 4.5rem);
+
+  /* rhythm */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --shell: 1180px;
+  --section-y: clamp(4.5rem, 9vw, 8.5rem);
+
+  --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --ink: #eef1f7;
+  --ink-raised: #ffffff;
+  --ink-sunk: #e3e8f1;
+  --line: #cbd5e8;
+  --line-soft: #dde4f0;
+
+  --chalk: #0a1020;
+  --mist: #4d5a76;
+  --mist-dim: #7a87a3;
+
+  --trace: #2f5fd0;
+  --trace-soft: rgba(47, 95, 208, 0.1);
+  --signal: #b46a00;
+  --signal-soft: rgba(180, 106, 0, 0.1);
+  --merge: #12784a;
+
+  --grid: rgba(47, 95, 208, 0.06);
+}

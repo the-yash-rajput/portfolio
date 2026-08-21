@@ -1,0 +1,80 @@
+.prs {
+  border-top: 1px solid var(--line-soft);
+}
+
+.pr {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.pr__link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "status title"
+    "repo   repo";
+  column-gap: 0.9rem;
+  row-gap: 0.35rem;
+  padding: 1.05rem 0.5rem 1.05rem 0;
+  align-items: baseline;
+  transition: padding-left 0.35s var(--ease-out), background 0.35s var(--ease);
+}
+
+.pr__link:hover {
+  padding-left: 0.75rem;
+  background: linear-gradient(90deg, var(--trace-soft), transparent 60%);
+}
+
+.pr__status {
+  grid-area: status;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  color: var(--mist-dim);
+  white-space: nowrap;
+}
+
+.pr__status[data-status="merged"] {
+  color: var(--merge);
+  border-color: color-mix(in srgb, var(--merge) 38%, transparent);
+}
+
+.pr__title {
+  grid-area: title;
+  color: var(--chalk);
+  font-weight: 500;
+  transition: color 0.25s var(--ease);
+}
+
+.pr__link:hover .pr__title {
+  color: var(--signal);
+}
+
+.pr__repo {
+  grid-area: repo;
+  color: var(--mist-dim);
+  text-transform: none;
+  letter-spacing: 0.06em;
+}
+
+.pr__num {
+  grid-area: num;
+  color: var(--mist-dim);
+  text-transform: none;
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .pr__link {
+    grid-template-columns: 5.4rem minmax(0, 1fr) auto 4.5rem;
+    grid-template-areas: "status title repo num";
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+
+  .pr__num {
+    display: block;
+    text-align: right;
+  }
+}

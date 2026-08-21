@@ -1,0 +1,129 @@
+.graph {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--ink-raised), var(--ink-sunk));
+  overflow: hidden;
+  position: relative;
+}
+
+/* faint plot grid inside the frame only */
+.graph::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.graph__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--mist-dim);
+}
+
+.graph__title {
+  color: var(--mist);
+}
+
+.graph__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.1em;
+}
+
+.graph__legend i {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  border: 1px solid var(--trace);
+  margin-left: 0.5rem;
+}
+
+.graph__legend i[data-kind="llm"] {
+  background: var(--trace-soft);
+}
+.graph__legend i[data-kind="rag"] {
+  border-style: dashed;
+}
+.graph__legend i[data-kind="py"] {
+  background: transparent;
+}
+
+.graph__canvas {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.graph__status {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--line-soft);
+  background: var(--ink-sunk);
+  color: var(--mist);
+  letter-spacing: 0.08em;
+  text-transform: none;
+  min-height: 2.9rem;
+  flex-wrap: wrap;
+  row-gap: 0.15rem;
+}
+
+.graph__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  flex: none;
+  box-shadow: 0 0 0 0 var(--signal-soft);
+  animation: pip 1.6s var(--ease) infinite;
+}
+
+.graph__dot[data-done="true"] {
+  background: var(--merge);
+  animation: none;
+}
+
+@keyframes pip {
+  0% {
+    box-shadow: 0 0 0 0 var(--signal-soft);
+  }
+  70% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.graph__node {
+  color: var(--chalk);
+  font-weight: 600;
+}
+
+.graph__node::after {
+  content: " ·";
+  color: var(--mist-dim);
+}
+
+.graph__log {
+  color: var(--mist);
+  min-width: 0;
+}
+
+@media (max-width: 520px) {
+  .graph__legend {
+    display: none;
+  }
+}

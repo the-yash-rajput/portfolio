@@ -1,0 +1,76 @@
+.ledger {
+  border-top: 1px solid var(--line);
+}
+
+.ledger__row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "value unit"
+    "what what"
+    "where where";
+  column-gap: 0.9rem;
+  row-gap: 0.35rem;
+  align-items: baseline;
+  padding-block: 1.6rem;
+  border-bottom: 1px solid var(--line-soft);
+  transition: border-color 0.35s var(--ease);
+}
+
+.ledger__row:hover {
+  border-bottom-color: var(--signal);
+}
+
+.ledger__value {
+  grid-area: value;
+  font-family: var(--display);
+  font-variation-settings: "wdth" 108;
+  font-weight: 800;
+  font-size: var(--step-3);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--signal);
+  font-feature-settings: "tnum" 1;
+  white-space: nowrap;
+}
+
+.ledger__unit {
+  grid-area: unit;
+  color: var(--mist-dim);
+  text-transform: none;
+  letter-spacing: 0.1em;
+}
+
+.ledger__what {
+  grid-area: what;
+  color: var(--chalk);
+  max-width: 60ch;
+}
+
+.ledger__where {
+  grid-area: where;
+  color: var(--mist-dim);
+  letter-spacing: 0.14em;
+}
+
+@media (min-width: 860px) {
+  .ledger__row {
+    grid-template-columns: 10rem minmax(0, 1fr) 12rem;
+    grid-template-areas:
+      "value what where"
+      "unit  what where";
+    column-gap: 2.5rem;
+    row-gap: 0.4rem;
+    align-items: start;
+    padding-block: 1.9rem;
+  }
+
+  .ledger__what {
+    align-self: center;
+  }
+
+  .ledger__where {
+    text-align: right;
+    align-self: center;
+  }
+}

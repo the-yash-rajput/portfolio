@@ -1,0 +1,116 @@
+.awards {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.award {
+  background: var(--ink);
+  outline: 1px solid var(--line-soft);
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: background 0.4s var(--ease);
+}
+
+.award:hover {
+  background: var(--ink-raised);
+}
+
+/* These are self-contained banner artworks, not transparent logos — no plate behind them. */
+.award__badge {
+  height: 48px;
+  width: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease-out);
+}
+
+.award:hover .award__badge {
+  border-color: var(--signal);
+  transform: translateY(-2px);
+}
+
+.award__badge img {
+  height: 100%;
+  width: auto;
+  max-width: 132px;
+  object-fit: cover;
+}
+
+.award__title {
+  font-size: var(--step-1);
+  letter-spacing: -0.015em;
+}
+
+.award__body {
+  color: var(--mist);
+  font-size: 0.94rem;
+  flex: 1;
+}
+
+.award__link {
+  align-self: flex-start;
+  margin-top: 0.3rem;
+}
+
+/* education rides along under the awards — same subject, less weight */
+.edu {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 1.1rem;
+}
+
+.edu__label {
+  color: var(--mist-dim);
+}
+
+.edu__row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edu__logo {
+  height: 38px;
+  width: auto;
+  max-width: 92px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid var(--line-soft);
+  background: var(--plate);
+  padding: 4px;
+  flex: none;
+}
+
+.edu__name {
+  font-weight: 500;
+}
+
+.edu__degree {
+  color: var(--mist-dim);
+  text-transform: none;
+  letter-spacing: 0.08em;
+  margin-top: 0.15rem;
+}
+
+@media (min-width: 620px) {
+  .awards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .awards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

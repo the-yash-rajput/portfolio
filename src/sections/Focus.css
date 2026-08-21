@@ -1,0 +1,63 @@
+.fgrid {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fcard {
+  position: relative;
+  background: var(--ink);
+  outline: 1px solid var(--line-soft);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: background 0.4s var(--ease);
+}
+
+.fcard:hover {
+  background: var(--ink-raised);
+}
+
+/* amber trace runs across the top edge on hover — same gesture as the graph packet */
+.fcard__trace {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--signal), transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.fcard:hover .fcard__trace {
+  transform: scaleX(1);
+}
+
+.fcard__title {
+  font-size: var(--step-2);
+  letter-spacing: -0.02em;
+}
+
+.fcard__body {
+  color: var(--mist);
+  max-width: 46ch;
+  flex: 1;
+}
+
+.fcard__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 780px) {
+  .fgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
