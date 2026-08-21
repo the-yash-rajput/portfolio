@@ -195,39 +195,44 @@ export const impact = {
   ]
 };
 
+const jobs = [
+  {
+    role: "Senior Software Engineer",
+    org: "Turtlemint",
+    logo: require("../assets/images/tmlogo.png"),
+    period: "Dec 2022 — Present",
+    summary:
+      "Designing agent workflows and the microservices they sit on, across insurance distribution systems used by hundreds of thousands of advisors.",
+    bullets: [
+      "Build LLM workflow agents — document classification, structured extraction and RAG nodes — and the message-envelope plumbing that feeds them.",
+      "Architected and delivered scalable full-stack services, from API gateway and auth to payments integration.",
+      "Led the RPA migration to Java + Playwright, saving roughly ₹1 Cr a year in infra and licensing.",
+      "Shipped Zendesk attachment redaction, cutting storage 66% and $28K+ annually.",
+      "Built a Recon Management Service for fast, accurate reconciliation across large datasets."
+    ]
+  },
+  {
+    role: "Chief Technical Secretary",
+    org: "PICT Computer Society Board",
+    logo: require("../assets/images/pcsb.png"),
+    period: "Jul 2021 — Mar 2023",
+    summary:
+      "Ran the technical arm of the student board — events, mentoring, and a team that had to ship on a deadline it didn't set.",
+    bullets: [
+      "Organised and moderated Reverse Coding and CodeStrike under Xenia.",
+      "Delivered DSA sessions for juniors, with PICT Algorithms Club and ACM Student Chapter.",
+      "Led a cross-functional technical team across multiple stakeholders and tight deadlines."
+    ]
+  }
+];
+
 export const experience = {
-  eyebrow: "3 yrs · 2 orgs",
+  // ponytail: derived so it can't go stale; bump the date if the first job changes
+  eyebrow: `${Math.floor(
+    (Date.now() - Date.parse("2022-12-01")) / 3.15576e10
+  )}+ yrs · ${jobs.length} orgs`,
   title: "Where I've worked",
-  jobs: [
-    {
-      role: "Senior Software Engineer",
-      org: "Turtlemint",
-      logo: require("../assets/images/tmlogo.png"),
-      period: "Dec 2022 — Present",
-      summary:
-        "Designing agent workflows and the microservices they sit on, across insurance distribution systems used by hundreds of thousands of advisors.",
-      bullets: [
-        "Build LLM workflow agents — document classification, structured extraction and RAG nodes — and the message-envelope plumbing that feeds them.",
-        "Architected and delivered scalable full-stack services, from API gateway and auth to payments integration.",
-        "Led the RPA migration to Java + Playwright, saving roughly ₹1 Cr a year in infra and licensing.",
-        "Shipped Zendesk attachment redaction, cutting storage 66% and $28K+ annually.",
-        "Built a Recon Management Service for fast, accurate reconciliation across large datasets."
-      ]
-    },
-    {
-      role: "Chief Technical Secretary",
-      org: "PICT Computer Society Board",
-      logo: require("../assets/images/pcsb.png"),
-      period: "Jul 2021 — Mar 2023",
-      summary:
-        "Ran the technical arm of the student board — events, mentoring, and a team that had to ship on a deadline it didn't set.",
-      bullets: [
-        "Organised and moderated Reverse Coding and CodeStrike under Xenia.",
-        "Delivered DSA sessions for juniors, with PICT Algorithms Club and ACM Student Chapter.",
-        "Led a cross-functional technical team across multiple stakeholders and tight deadlines."
-      ]
-    }
-  ]
+  jobs
 };
 
 /** AI first — it's what the reader came for. */
