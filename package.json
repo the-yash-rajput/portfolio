@@ -31,5 +31,12 @@
     "dotenv": "^8.2.0",
     "gh-pages": "^6.0.0",
     "prettier": "^2.3.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "core-js",
+      "core-js-pure"
+    ]
   }
 }
