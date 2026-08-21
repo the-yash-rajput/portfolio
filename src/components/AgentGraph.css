@@ -51,10 +51,10 @@
 .graph__legend i[data-kind="llm"] {
   background: var(--trace-soft);
 }
-.graph__legend i[data-kind="rag"] {
+.graph__legend i[data-kind="comm"] {
   border-style: dashed;
 }
-.graph__legend i[data-kind="py"] {
+.graph__legend i[data-kind="fn"] {
   background: transparent;
 }
 

@@ -258,7 +258,7 @@ export default function AgentGraph({theme}) {
           ctx.shadowBlur = 10 + pulse * 20;
         }
 
-        if (n.kind === "branch") {
+        if (n.shape === "diamond") {
           diamond(ctx, 0, 0, box.w + 22, box.h + 14);
         } else {
           roundRect(ctx, -box.w / 2, -box.h / 2, box.w, box.h, 5);
@@ -302,10 +302,13 @@ export default function AgentGraph({theme}) {
   return (
     <figure className="graph" ref={wrapRef}>
       <figcaption className="graph__head">
-        <span className="mono graph__title">extraction agent · live trace</span>
+        <span className="mono graph__title">{agentGraph.title}</span>
         <span className="mono graph__legend">
-          <i data-kind="llm" /> llm <i data-kind="py" /> python{" "}
-          <i data-kind="rag" /> retrieval
+          {agentGraph.legend.map(l => (
+            <React.Fragment key={l.kind}>
+              <i data-kind={l.kind} /> {l.label}{" "}
+            </React.Fragment>
+          ))}
         </span>
       </figcaption>
 
@@ -313,7 +316,7 @@ export default function AgentGraph({theme}) {
         ref={canvasRef}
         className="graph__canvas"
         role="img"
-        aria-label="An agent workflow graph: ingest, preprocess, classify, route, then either extract or retrieve, then validate and respond."
+        aria-label={agentGraph.aria}
       />
 
       <p className="graph__status mono" aria-live="off">

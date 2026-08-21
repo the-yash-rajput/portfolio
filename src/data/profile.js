@@ -43,94 +43,47 @@ export const hero = {
   status: "Open to AI engineering roles"
 };
 
-/** Hero signature: the workflow graph that runs on load.
+/** Hero signature: an Agent Crafter run replayed on load.
+ *  Mirrors the real product — llm / functional / communication nodes, a python
+ *  router node that writes the routing key, and conditional edges off it.
  *  Node coordinates are on a 0–100 grid; the canvas maps them to pixels. */
 export const agentGraph = {
+  title: "ticket triage agent · run trace",
+  aria: "An Agent Crafter workflow graph: intake, topic gate, classify, router, then either retrieve or enrich, then decide and publish.",
+  legend: [
+    {kind: "llm", label: "llm"},
+    {kind: "fn", label: "functional"},
+    {kind: "comm", label: "communication"}
+  ],
   nodes: [
-    {
-      id: "ingest",
-      label: "ingest",
-      kind: "io",
-      x: 0,
-      y: 50,
-      note: "document · image · webhook"
-    },
-    {
-      id: "preprocess",
-      label: "preprocess",
-      kind: "py",
-      x: 17,
-      y: 50,
-      note: "OCR, chunk, normalise"
-    },
-    {
-      id: "classify",
-      label: "classify",
-      kind: "llm",
-      x: 34,
-      y: 50,
-      note: "vision LLM · 9 doc types"
-    },
-    {
-      id: "route",
-      label: "route",
-      kind: "branch",
-      x: 51,
-      y: 50,
-      note: "conditional edge"
-    },
-    {
-      id: "extract",
-      label: "extract",
-      kind: "llm",
-      x: 68,
-      y: 16,
-      note: "structured field extraction"
-    },
-    {
-      id: "retrieve",
-      label: "retrieve",
-      kind: "rag",
-      x: 68,
-      y: 84,
-      note: "vector search over corpus"
-    },
-    {
-      id: "validate",
-      label: "validate",
-      kind: "py",
-      x: 85,
-      y: 50,
-      note: "schema + confidence gate"
-    },
-    {
-      id: "respond",
-      label: "respond",
-      kind: "io",
-      x: 100,
-      y: 50,
-      note: "typed payload"
-    }
+    {id: "intake", label: "intake", kind: "python", x: 0, y: 50},
+    {id: "gate", label: "topic gate", kind: "llm_agent", x: 17, y: 50},
+    {id: "classify", label: "classify", kind: "llm_agent", x: 34, y: 50},
+    {id: "router", label: "router", kind: "python", shape: "diamond", x: 51, y: 50},
+    {id: "retrieve", label: "retrieve", kind: "rag", x: 68, y: 16},
+    {id: "enrich", label: "enrich", kind: "api_call", x: 68, y: 84},
+    {id: "decide", label: "decide", kind: "python", x: 85, y: 50},
+    {id: "publish", label: "publish", kind: "kafka", x: 100, y: 50}
   ],
   edges: [
-    ["ingest", "preprocess"],
-    ["preprocess", "classify"],
-    ["classify", "route"],
-    ["route", "extract"],
-    ["route", "retrieve"],
-    ["extract", "validate"],
-    ["retrieve", "validate"],
-    ["validate", "respond"]
+    ["intake", "gate"],
+    ["gate", "classify"],
+    ["classify", "router"],
+    ["router", "retrieve"],
+    ["router", "enrich"],
+    ["retrieve", "decide"],
+    ["enrich", "decide"],
+    ["decide", "publish"]
   ],
   /** The run the canvas replays, in order. */
   trace: [
-    {node: "ingest", log: "payload accepted · 1 file"},
-    {node: "preprocess", log: "3 pages → 11 chunks"},
-    {node: "classify", log: "policy_schedule · confidence 0.94"},
-    {node: "route", log: "branch → extract"},
-    {node: "extract", log: "14 / 14 fields resolved"},
-    {node: "validate", log: "schema ok · gate passed"},
-    {node: "respond", log: "200 · 1.8s end to end"}
+    {node: "intake", log: "session turn 1 · state seeded"},
+    {node: "gate", log: "in scope · llm_agent"},
+    {node: "classify", log: "intent resolved · confidence 0.94"},
+    {node: "router", log: "python_expression → retrieve"},
+    {node: "retrieve", log: "top-k 6 · grounded + sources"},
+    {node: "decide", log: "state gate passed"},
+    {node: "publish", log: "kafka · run complete · 1.8s"}
   ]
 };
 
