@@ -1,20 +1,23 @@
+/* Section frame — a document rule, then an editorial head: title in the left
+   measure, the section's datum set right and hung on the title's first
+   baseline, the way a folio sits on a printed page. The old full-width
+   gradient rule is gone; the section's own top rule does that job. */
+
 .section {
   padding-block: var(--section-y);
-  border-top: 1px solid var(--line-soft);
+  border-top: 1px solid var(--line);
   position: relative;
 }
 
 .section__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
-  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
 }
 
 .section__label {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .section__eyebrow {
@@ -23,35 +26,45 @@
 }
 
 .section__rule {
-  height: 1px;
-  flex: 1;
-  background: linear-gradient(90deg, var(--line), transparent);
+  display: none;
 }
 
 .section__title {
   font-size: var(--step-3);
-  max-width: 20ch;
+  max-width: 18ch;
 }
 
 .section__lede {
-  margin-top: 1rem;
+  margin-top: 1.1rem;
 }
 
 .section__aside {
   color: var(--mist);
+  margin-top: 1.25rem;
 }
 
 @media (min-width: 900px) {
   .section__head {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-    align-items: end;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--gutter);
+    align-items: baseline;
   }
 
   .section__label {
-    grid-column: 1 / -1;
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+    justify-self: end;
+  }
+
+  .section__intro {
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .section__aside {
-    padding-bottom: 0.4rem;
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
   }
 }

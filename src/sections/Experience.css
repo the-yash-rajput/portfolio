@@ -1,53 +1,36 @@
+/* Experience reads as a CV entry, not a timeline: dates and employer set in a
+   narrow left rail, the work itself in the wide measure beside it, jobs
+   separated by a hairline. No connector rail, no node markers — the dates
+   already carry the sequence. */
+
 .jobs {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
 .job {
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--line-soft);
+}
+
+.job:first-child {
+  border-top: none;
+  padding-top: 0;
 }
 
 .job__rail {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.job__rail::before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  bottom: -1rem;
-  width: 1px;
-  background: linear-gradient(180deg, var(--line), transparent);
-}
-
-.job__node {
-  width: 9px;
-  height: 9px;
-  border-radius: 2px;
-  border: 1px solid var(--trace);
-  background: var(--ink);
-  margin-top: 8px;
-  transform: rotate(45deg);
-  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
-}
-
-.job:hover .job__node {
-  background: var(--signal);
-  border-color: var(--signal);
+  display: none;
 }
 
 .job__period {
   color: var(--signal);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
 }
 
 .job__role {
   font-size: var(--step-2);
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
 
 .job__org {
@@ -56,36 +39,35 @@
   gap: 0.6rem;
   margin-top: 0.5rem;
   color: var(--mist);
-  font-weight: 500;
 }
 
 .job__logo {
-  height: 24px;
+  height: 22px;
   width: auto;
   max-width: 84px;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 2px;
   background: var(--plate);
-  padding: 3px 5px;
-  border: 1px solid var(--line-soft);
+  padding: var(--plate-pad);
+  border: var(--plate-border);
 }
 
 .job__summary {
   margin-top: 1rem;
   color: var(--mist);
-  max-width: 62ch;
+  max-width: 60ch;
 }
 
 .job__bullets {
-  margin-top: 1.35rem;
+  margin-top: 1.25rem;
   display: grid;
-  gap: 0.7rem;
-  max-width: 68ch;
+  gap: 0.65rem;
+  max-width: 66ch;
 }
 
 .job__bullets li {
   position: relative;
-  padding-left: 1.4rem;
+  padding-left: 1.35rem;
   color: var(--mist);
 }
 
@@ -93,15 +75,48 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 0.72em;
-  width: 8px;
+  top: 0.78em;
+  width: 9px;
   height: 1px;
-  background: var(--trace);
+  background: var(--line);
 }
 
 @media (min-width: 900px) {
-  .job {
-    grid-template-columns: 22px minmax(0, 1fr);
-    gap: 2rem;
+  .job__body {
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+
+  .job__period {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0.55rem;
+  }
+
+  .job__org {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0.9rem;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job__role {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .job__summary {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .job__bullets {
+    grid-column: 2;
+    grid-row: 3;
   }
 }

@@ -73,3 +73,32 @@
     gap: 3rem;
   }
 }
+
+/* The page opened with light moving across the sheet; it closes the same way,
+   quieter and from the other side. */
+.contact {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 32rem;
+  height: 32rem;
+  right: -9rem;
+  bottom: -6rem;
+  border-radius: 50%;
+  pointer-events: none;
+  background: var(--bloom-a);
+  filter: blur(120px);
+  animation: bloom-b 29s var(--ease) infinite;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .contact::before {
+    display: none;
+  }
+}

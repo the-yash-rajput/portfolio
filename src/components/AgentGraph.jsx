@@ -113,7 +113,7 @@ export default function AgentGraph({theme}) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    let colors = palette(document.documentElement);
+    let colors = palette(wrap);
     let raf;
     let start = null;
     let lastStep = -2;

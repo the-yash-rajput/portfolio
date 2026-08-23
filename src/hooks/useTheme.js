@@ -5,9 +5,7 @@ const KEY = "theme";
 function initial() {
   const saved = localStorage.getItem(KEY);
   if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return "light"; // paper is the designed default; dark is opt-in
 }
 
 export function useTheme() {

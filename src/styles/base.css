@@ -17,8 +17,9 @@ body {
   background: var(--ink);
   color: var(--chalk);
   font-family: var(--body);
+  font-optical-sizing: auto;
   font-size: var(--step-0);
-  line-height: 1.65;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -55,10 +56,9 @@ h2,
 h3,
 h4 {
   font-family: var(--display);
-  font-variation-settings: "wdth" var(--wide);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.028em;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
   margin: 0;
   text-wrap: balance;
 }
@@ -93,14 +93,14 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--trace);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--ink-sunk);
+  background: var(--mark);
+  color: var(--mark-ink);
 }
 
 /* ---- shared primitives ---- */
@@ -112,20 +112,37 @@ button {
   padding-inline: var(--gutter);
 }
 
-/* mono label — used for every eyebrow, datum and caption on the site */
+/* mono is reserved for DATA — dates, ratings, counts, node kinds, PR numbers.
+   Prose labels use the display or body face; that separation is the point. */
 .mono {
   font-family: var(--mono);
   font-size: var(--step--1);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 500;
+}
+
+/* highlighter swipe — the one place colour is loud. Sits behind the words the
+   way a marker sits on paper, slightly overhanging the baseline. */
+.mark {
+  background: linear-gradient(
+    var(--mark) 0%,
+    var(--mark) 100%
+  );
+  background-size: 100% 0.62em;
+  background-position: 0 78%;
+  background-repeat: no-repeat;
+  color: var(--mark-ink);
+  padding: 0 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .lede {
   color: var(--mist);
   font-size: var(--step-1);
-  line-height: 1.55;
-  max-width: 54ch;
+  line-height: 1.6;
+  max-width: 52ch;
 }
 
 /* ---- reveal on scroll ---- */
@@ -172,9 +189,9 @@ button {
   text-transform: uppercase;
   font-weight: 500;
   color: var(--btn-fg);
-  padding: 0.85rem 1.35rem;
-  border: 1px solid var(--line);
-  border-radius: 4px;
+  padding: 0.8rem 1.3rem;
+  border: 1px solid var(--chalk);
+  border-radius: 2px;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -187,15 +204,15 @@ button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--signal);
+  background: var(--mark);
   transform: scaleX(0);
   transform-origin: 0 50%;
   transition: transform 0.42s var(--ease-out);
 }
 
 .btn:hover {
-  border-color: var(--signal);
-  color: var(--ink-sunk);
+  border-color: var(--chalk);
+  color: var(--mark-ink);
 }
 
 .btn:hover::before {
@@ -203,8 +220,13 @@ button {
 }
 
 .btn--primary {
-  border-color: var(--signal);
-  color: var(--signal);
+  background: var(--mark);
+  border-color: var(--mark);
+  color: var(--mark-ink);
+}
+
+.btn--primary::before {
+  background: transparent;
 }
 
 .btn__arrow {
@@ -245,12 +267,12 @@ button {
 .chip {
   font-family: var(--mono);
   font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   color: var(--mist);
   border: 1px solid var(--line);
-  border-radius: 3px;
-  padding: 0.28rem 0.55rem;
-  background: var(--ink-raised);
+  border-radius: 2px;
+  padding: 0.26rem 0.55rem;
+  background: transparent;
   transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
     transform 0.25s var(--ease-out);
 }
@@ -268,11 +290,11 @@ button {
   z-index: 100;
   padding: 0.6rem 1rem;
   border-radius: 4px;
-  background: var(--signal);
-  color: var(--ink-sunk);
+  background: var(--mark);
+  color: var(--mark-ink);
   font-family: var(--mono);
   font-size: var(--step--1);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transform: translateY(-160%);
   transition: transform 0.25s var(--ease-out);

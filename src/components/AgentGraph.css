@@ -1,10 +1,28 @@
+/* The screen. This panel keeps its own dark palette in both themes — the page
+   is paper, this is the thing running on it. Every token below is scoped, and
+   the canvas reads its colours off this element, so the redefinition is total. */
 .graph {
+  --ink-raised: #191d24;
+  --ink-sunk: #10131a;
+  --line: #2c3440;
+  --line-soft: #232a35;
+  --chalk: #f1f3f7;
+  --mist: #98a3b5;
+  --mist-dim: #6b7688;
+  --trace: #7ea1ff;
+  --trace-soft: rgba(126, 161, 255, 0.16);
+  --signal: #ffc45a;
+  --grid: rgba(241, 243, 247, 0.045);
+
   margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: linear-gradient(180deg, var(--ink-raised), var(--ink-sunk));
+  border: 1px solid #0d1016;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #12161d, #0d1016);
+  color: var(--mist);
   overflow: hidden;
   position: relative;
+  /* lifted off the sheet, like a device set down on a desk */
+  box-shadow: 0 18px 40px -24px rgba(20, 24, 27, 0.55);
 }
 
 /* faint plot grid inside the frame only */

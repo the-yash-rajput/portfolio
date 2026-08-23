@@ -1,6 +1,72 @@
 .hero {
   padding-top: clamp(3rem, 6vw, 5rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
+  position: relative;
+  /* own stacking context so the blooms sit behind the hero's own content
+     without escaping behind the page */
+  isolation: isolate;
+}
+
+/* Two slow blooms drifting behind the hero. Large, heavily blurred and low
+   alpha — at this opacity they register as the sheet catching light rather
+   than as colour. Loops are long and out of phase (19s / 25s), so the pair
+   never visibly repeats. */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero::before {
+  width: 30rem;
+  height: 30rem;
+  top: 2rem;
+  left: -8rem;
+  background: var(--bloom-a);
+  filter: blur(100px);
+  animation: bloom-a 19s var(--ease) infinite;
+}
+
+.hero::after {
+  width: 34rem;
+  height: 34rem;
+  top: 8rem;
+  right: -10rem;
+  background: var(--bloom-b);
+  filter: blur(110px);
+  animation: bloom-b 25s var(--ease) infinite;
+}
+
+/* the blur is expensive and the effect is invisible at phone width */
+@media (max-width: 640px) {
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+}
+
+@keyframes bloom-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(36px, -28px, 0) scale(1.08);
+  }
+}
+
+@keyframes bloom-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-44px, 34px, 0) scale(1.12);
+  }
 }
 
 /* page-load sequence: everything rises once, in order */

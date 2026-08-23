@@ -1,71 +1,98 @@
-/* Design tokens — blueprint ink ground, blueprint blue structure, signal amber for anything active. */
+/* Design tokens — paper & ink.
+ *
+ * The page is a document: cool drafting-grey stock, near-black ink, hairline
+ * rules. The one machine surface is the run-trace panel, which stays dark in
+ * both themes (see AgentGraph.css) — paper is where the system is designed,
+ * the dark panel is where it runs.
+ *
+ * Names are historical: --ink is the GROUND, --chalk is the primary TEXT.
+ */
 
 :root {
-  /* surface */
-  --ink: #080c16;
-  --ink-raised: #0e1424;
-  --ink-sunk: #05080f;
-  --line: #1b2740;
-  --line-soft: #131c2e;
+  /* ground — cool grey stock, deliberately not warm cream */
+  --ink: #e7e8e3;
+  --ink-raised: #f3f4f1;
+  --ink-sunk: #dbddd5;
+  --line: #c2c5bc;
+  --line-soft: #d6d9d0;
 
   /* text */
-  --chalk: #e9eef8;
-  --mist: #8695b4;
-  --mist-dim: #5b6883;
+  --chalk: #14181b;
+  --mist: #4c5359;
+  --mist-dim: #6e756f;
 
-  /* accents — blue is structure, amber is signal */
-  --trace: #5b8def;
-  --trace-soft: rgba(91, 141, 239, 0.14);
-  --signal: #ffb020;
-  --signal-soft: rgba(255, 176, 32, 0.13);
-  --merge: #7ee0a8;
+  /* marks — blue is structure, ochre is the annotation */
+  --trace: #2b4cd8;
+  --trace-soft: rgba(43, 76, 216, 0.1);
+  --signal: #8f5b00;
+  --signal-soft: rgba(143, 91, 0, 0.12);
+  --mark: #ffd84d; /* highlighter swipe: a background, never a text colour */
+  --mark-ink: #14181b; /* what stays legible on top of a swipe */
+  --merge: #1a6f47;
 
-  /* logos ship dark-on-transparent, so they always sit on a light plate */
-  --plate: #ffffff;
+  /* logos ship dark-on-transparent — on paper they need no plate at all */
+  --plate: transparent;
+  --plate-pad: 0;
+  --plate-border: none;
 
-  /* grid overlay */
-  --grid: rgba(91, 141, 239, 0.055);
+  /* drafting grid */
+  --grid: rgba(20, 24, 27, 0.045);
 
-  /* type */
-  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* ambient blooms — light moving across the sheet. Kept in the page's own
+     two accents so they read as paper catching light, not as a gradient. */
+  --bloom-a: rgba(43, 76, 216, 0.13);
+  --bloom-b: rgba(143, 91, 0, 0.12);
 
-  --wide: 118; /* Archivo wdth axis for display type */
+  /* type — grotesque display, serif body, mono strictly for data */
+  --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Literata", Georgia, "Times New Roman", serif;
+  --mono: "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* scale */
-  --step--1: clamp(0.75rem, 0.72rem + 0.15vw, 0.82rem);
-  --step-0: clamp(0.95rem, 0.91rem + 0.2vw, 1.05rem);
-  --step-1: clamp(1.15rem, 1.06rem + 0.45vw, 1.4rem);
+  --step--1: clamp(0.72rem, 0.69rem + 0.14vw, 0.78rem);
+  --step-0: clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem);
+  --step-1: clamp(1.1rem, 1.02rem + 0.4vw, 1.3rem);
   --step-2: clamp(1.3rem, 1.15rem + 0.7vw, 1.7rem);
-  --step-3: clamp(1.85rem, 1.4rem + 2.1vw, 3rem);
-  --step-4: clamp(2.4rem, 1.5rem + 3.9vw, 4.5rem);
+  --step-3: clamp(1.9rem, 1.45rem + 2.1vw, 3.05rem);
+  --step-4: clamp(2.5rem, 1.55rem + 4.1vw, 4.7rem);
 
   /* rhythm */
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --shell: 1180px;
-  --section-y: clamp(4.5rem, 9vw, 8.5rem);
+  --section-y: clamp(3.75rem, 7vw, 6.5rem);
 
   --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-theme="light"] {
-  --ink: #eef1f7;
-  --ink-raised: #ffffff;
-  --ink-sunk: #e3e8f1;
-  --line: #cbd5e8;
-  --line-soft: #dde4f0;
+/* Dark is opt-in: the same document, printed white-on-black. Warm-neutral
+   rather than blue-black so it reads as ink, not as a terminal. */
+[data-theme="dark"] {
+  --ink: #14150f;
+  --ink-raised: #1d1e17;
+  --ink-sunk: #0d0e0a;
+  --line: #33352a;
+  --line-soft: #24261d;
 
-  --chalk: #0a1020;
-  --mist: #4d5a76;
-  --mist-dim: #7a87a3;
+  --chalk: #f0efe6;
+  --mist: #a5a598;
+  --mist-dim: #7c7d70;
 
-  --trace: #2f5fd0;
-  --trace-soft: rgba(47, 95, 208, 0.1);
-  --signal: #b46a00;
-  --signal-soft: rgba(180, 106, 0, 0.1);
-  --merge: #12784a;
+  --trace: #8aa0ff;
+  --trace-soft: rgba(138, 160, 255, 0.14);
+  --signal: #e0a63a;
+  --signal-soft: rgba(224, 166, 58, 0.14);
+  --mark: #d9a520;
+  --mark-ink: #14150f;
+  --merge: #6fcf9b;
 
-  --grid: rgba(47, 95, 208, 0.06);
+  --grid: rgba(240, 239, 230, 0.045);
+
+  --bloom-a: rgba(138, 160, 255, 0.13);
+  --bloom-b: rgba(224, 166, 58, 0.11);
+
+  /* dark ground: the dark-on-transparent logos need a plate to survive */
+  --plate: #ffffff;
+  --plate-pad: 3px 5px;
+  --plate-border: 1px solid var(--line-soft);
 }
