@@ -117,18 +117,30 @@ export default function AgentGraph({theme}) {
     let raf;
     let start = null;
     let lastStep = -2;
-    let size = {w: 0, h: 0, vertical: false};
+    let size = {w: 0, h: 0, vertical: false, dpr: 0};
 
     const resize = () => {
       const rect = wrap.getBoundingClientRect();
       const vertical = rect.width < VERTICAL_BREAKPOINT;
       const h = vertical ? 620 : 300;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // Re-assigning canvas.width/height clears the bitmap and costs an
+      // allocation, so skip when the box genuinely has not moved.
+      if (
+        size.w === rect.width &&
+        size.h === h &&
+        size.vertical === vertical &&
+        size.dpr === dpr
+      ) {
+        return;
+      }
+
       canvas.width = rect.width * dpr;
       canvas.height = h * dpr;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      size = {w: rect.width, h, vertical};
+      size = {w: rect.width, h, vertical, dpr};
     };
 
     const draw = now => {
@@ -284,14 +296,24 @@ export default function AgentGraph({theme}) {
     resize();
     raf = requestAnimationFrame(draw);
 
+    /* resize() sets canvas.style.height, and the canvas is inside the element
+       being observed — mutating it straight from the callback resizes the
+       observed box mid-delivery, which is exactly what raises "ResizeObserver
+       loop completed with undelivered notifications". Deferring to the next
+       frame moves the write out of the delivery cycle. */
+    let roFrame = 0;
     const ro = new ResizeObserver(() => {
-      resize();
-      if (reduced) requestAnimationFrame(draw);
+      cancelAnimationFrame(roFrame);
+      roFrame = requestAnimationFrame(() => {
+        resize();
+        if (reduced) requestAnimationFrame(draw);
+      });
     });
     ro.observe(wrap);
 
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(roFrame);
       ro.disconnect();
     };
   }, [theme]);
