@@ -63,17 +63,18 @@
   padding: 0 0.45rem;
 }
 
-/* sits on the paper below the panel — the only place the page says outright
-   what the thing is and who built it */
+/* Runs the full width of the panel as a single credit line, the way a figure
+   is captioned in print. It is the only place the page says outright what the
+   thing is and who built it. */
 .graph__caption {
-  margin-top: 0.9rem;
+  margin-top: 0.85rem;
   color: var(--mist);
   font-size: var(--step--1);
   font-family: var(--body);
   letter-spacing: 0;
   text-transform: none;
-  line-height: 1.6;
-  max-width: 62ch;
+  line-height: 1.55;
+  text-wrap: pretty;
 }
 
 .graph__legend {
