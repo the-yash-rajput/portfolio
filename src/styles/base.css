@@ -7,9 +7,16 @@
 }
 
 html {
+  /* the no-JS fallback; Lenis takes over and switches this off when it runs */
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Lenis sets .lenis on <html> the moment it initialises — that is exactly when
+   native smooth scrolling must stop competing with it. */
+html.lenis {
+  scroll-behavior: auto;
 }
 
 body {

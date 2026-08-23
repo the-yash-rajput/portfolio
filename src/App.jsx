@@ -11,10 +11,12 @@ import Writing from "./sections/Writing";
 import Awards from "./sections/Awards";
 import Contact from "./sections/Contact";
 import {useTheme} from "./hooks/useTheme";
+import {useSmoothScroll} from "./hooks/useSmoothScroll";
 import "./styles/base.css";
 
 export default function App() {
   const [theme, toggleTheme] = useTheme();
+  useSmoothScroll();
 
   return (
     <>
