@@ -54,7 +54,7 @@ export const agentGraph = {
   agent: "event router agent",
   state: "run trace",
   caption:
-    "Agent Crafter — n8n for AI agents, built in-house at Turtlemint. Any service can start a run over the API; product teams wire up what happens to that event on a canvas like this one, without waiting on a backend team. Above is one of those runs, replaying.",
+    "Agent Crafter — n8n for AI agents, built in-house at Turtlemint. Any service can start a run over the API. Product teams wire up what happens to that event on a canvas like this one, without waiting on a backend team. Above is one of those runs, replaying.",
   aria: "An Agent Crafter workflow graph: an inbound event is normalised, classified and extracted, then routed to either retrieval or an API enrichment, then decided on and published.",
   legend: [
     {kind: "llm", label: "llm"},
