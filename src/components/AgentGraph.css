@@ -47,8 +47,33 @@
   color: var(--mist-dim);
 }
 
+/* platform / agent / state — the breadcrumb a builder gives a saved workflow,
+   so the panel reads as one agent inside a product rather than a diagram */
 .graph__title {
   color: var(--mist);
+}
+
+.graph__product {
+  color: var(--chalk);
+  font-weight: 600;
+}
+
+.graph__sep {
+  color: var(--mist-dim);
+  padding: 0 0.45rem;
+}
+
+/* sits on the paper below the panel — the only place the page says outright
+   what the thing is and who built it */
+.graph__caption {
+  margin-top: 0.9rem;
+  color: var(--mist);
+  font-size: var(--step--1);
+  font-family: var(--body);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.6;
+  max-width: 62ch;
 }
 
 .graph__legend {

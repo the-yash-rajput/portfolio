@@ -2,7 +2,7 @@
   display: grid;
   gap: 1px;
   border: 1px solid var(--line-soft);
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
 }
 
@@ -20,29 +20,25 @@
   background: var(--ink-raised);
 }
 
-/* These are self-contained banner artworks, not transparent logos — no plate behind them. */
-.award__badge {
-  height: 48px;
-  width: auto;
-  align-self: flex-start;
-  display: inline-flex;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease-out);
+/* The card leads with the number that earned it — same ledger language as the
+   impact rows. It replaced a banner graphic that only repeated the title. */
+.award__datum {
+  font-family: var(--display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--signal);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
-.award:hover .award__badge {
-  border-color: var(--signal);
-  transform: translateY(-2px);
-}
-
-.award__badge img {
-  height: 100%;
-  width: auto;
-  max-width: 132px;
-  object-fit: cover;
+.award__unit {
+  color: var(--mist-dim);
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 .award__title {

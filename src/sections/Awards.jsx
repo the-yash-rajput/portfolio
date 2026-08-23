@@ -7,10 +7,10 @@ import "./Awards.css";
 function Award({card}) {
   return (
     <article className="award stagger-item">
-      <picture className="award__badge">
-        <source srcSet={card.image} type="image/webp" />
-        <img src={card.fallback} alt={card.alt} loading="lazy" />
-      </picture>
+      <p className="award__datum">
+        {card.datum}
+        <span className="mono award__unit">{card.unit}</span>
+      </p>
       <h3 className="award__title">{card.title}</h3>
       <p className="award__body">{card.body}</p>
       {card.link && (

@@ -48,17 +48,23 @@ export const hero = {
  *  router node that writes the routing key, and conditional edges off it.
  *  Node coordinates are on a 0–100 grid; the canvas maps them to pixels. */
 export const agentGraph = {
-  title: "ticket triage agent · run trace",
-  aria: "An Agent Crafter workflow graph: intake, topic gate, classify, router, then either retrieve or enrich, then decide and publish.",
+  /* The panel is framed as the product it is: platform / agent / state, the
+     way a builder names a saved workflow. */
+  product: "Agent Crafter",
+  agent: "event router agent",
+  state: "run trace",
+  caption:
+    "Agent Crafter — n8n for AI agents, built in-house at Turtlemint. Any service can start a run over the API; product teams wire up what happens to that event on a canvas like this one, without waiting on a backend team. Above is one of those runs, replaying.",
+  aria: "An Agent Crafter workflow graph: an inbound event is normalised, classified and extracted, then routed to either retrieval or an API enrichment, then decided on and published.",
   legend: [
     {kind: "llm", label: "llm"},
     {kind: "fn", label: "functional"},
     {kind: "comm", label: "communication"}
   ],
   nodes: [
-    {id: "intake", label: "intake", kind: "python", x: 0, y: 50},
-    {id: "gate", label: "topic gate", kind: "llm_agent", x: 17, y: 50},
-    {id: "classify", label: "classify", kind: "llm_agent", x: 34, y: 50},
+    {id: "event", label: "normalise", kind: "python", x: 0, y: 50},
+    {id: "classify", label: "classify", kind: "llm_agent", x: 17, y: 50},
+    {id: "extract", label: "extract", kind: "llm_agent", x: 34, y: 50},
     {id: "router", label: "router", kind: "python", shape: "diamond", x: 51, y: 50},
     {id: "retrieve", label: "retrieve", kind: "rag", x: 68, y: 16},
     {id: "enrich", label: "enrich", kind: "api_call", x: 68, y: 84},
@@ -66,9 +72,9 @@ export const agentGraph = {
     {id: "publish", label: "publish", kind: "kafka", x: 100, y: 50}
   ],
   edges: [
-    ["intake", "gate"],
-    ["gate", "classify"],
-    ["classify", "router"],
+    ["event", "classify"],
+    ["classify", "extract"],
+    ["extract", "router"],
     ["router", "retrieve"],
     ["router", "enrich"],
     ["retrieve", "decide"],
@@ -77,9 +83,9 @@ export const agentGraph = {
   ],
   /** The run the canvas replays, in order. */
   trace: [
-    {node: "intake", log: "session turn 1 · state seeded"},
-    {node: "gate", log: "in scope · llm_agent"},
-    {node: "classify", log: "intent resolved · confidence 0.94"},
+    {node: "event", log: "inbound event · api · payload accepted"},
+    {node: "classify", log: "event type resolved · confidence 0.94"},
+    {node: "extract", log: "9 / 9 fields resolved"},
     {node: "router", log: "python_expression → retrieve"},
     {node: "retrieve", log: "top-k 6 · grounded + sources"},
     {node: "decide", log: "state gate passed"},
@@ -376,10 +382,9 @@ export const achievements = {
   cards: [
     {
       title: "4× ACM-ICPC Regionalist",
-      body: "Best rank 82 across Amritapuri, Asia Gwalior-Pune and Kanpur-Mathura regionals.",
-      image: require("../assets/images/icpcLogo.webp"),
-      fallback: require("../assets/images/icpcLogo.png"),
-      alt: "ACM ICPC",
+      datum: "82",
+      unit: "best rank",
+      body: "Across the Amritapuri, Asia Gwalior-Pune and Kanpur-Mathura regionals.",
       link: {
         label: "ICPC profile",
         url: "https://icpc.global/ICPCID/9FSU20XQS6JS"
@@ -387,10 +392,9 @@ export const achievements = {
     },
     {
       title: "CodeChef 5★",
-      body: "Peak rating 2003 — top-tier algorithmic and data structure work.",
-      image: require("../assets/images/codechefLogo.webp"),
-      fallback: require("../assets/images/codechefLogo.png"),
-      alt: "CodeChef",
+      datum: "2003",
+      unit: "peak rating",
+      body: "Five stars, held across years of contests.",
       link: {
         label: "CodeChef profile",
         url: "https://www.codechef.com/users/far_from_noob"
@@ -398,10 +402,9 @@ export const achievements = {
     },
     {
       title: "Codeforces Specialist",
-      body: "Peak rating 1438, built over years of consistent contests.",
-      image: require("../assets/images/codeforcesLogo.webp"),
-      fallback: require("../assets/images/codeforcesLogo.png"),
-      alt: "Codeforces",
+      datum: "1438",
+      unit: "peak rating",
+      body: "Specialist, built over years of consistent contests.",
       link: {
         label: "Codeforces profile",
         url: "https://codeforces.com/profile/Try_Fail_Learn_Repeat"
@@ -409,26 +412,23 @@ export const achievements = {
     },
     {
       title: "Google Kick Start 2022",
-      body: "Global rank 349 in Round D.",
-      image: require("../assets/images/googleLogo.webp"),
-      fallback: require("../assets/images/googleLogo.png"),
-      alt: "Google Kick Start",
+      datum: "349",
+      unit: "global rank",
+      body: "Round D, out of a global field.",
       link: null
     },
     {
       title: "Turtlemint Hackathon 3.0",
-      body: "First place — built and demoed in 48 hours.",
-      image: require("../assets/images/hackathonLogo.webp"),
-      fallback: require("../assets/images/hackathonLogo.png"),
-      alt: "Hackathon",
+      datum: "1st",
+      unit: "place",
+      body: "Built and demoed in 48 hours.",
       link: null
     },
     {
       title: "JEE — top 2%",
-      body: "98.95 percentile among 900,000+ candidates.",
-      image: require("../assets/images/jeeLogo.webp"),
-      fallback: require("../assets/images/jeeLogo.png"),
-      alt: "JEE",
+      datum: "98.95",
+      unit: "percentile",
+      body: "Among 900,000+ candidates.",
       link: null
     }
   ]

@@ -300,30 +300,44 @@ export default function AgentGraph({theme}) {
   const done = step >= agentGraph.trace.length - 1;
 
   return (
-    <figure className="graph" ref={wrapRef}>
-      <figcaption className="graph__head">
-        <span className="mono graph__title">{agentGraph.title}</span>
-        <span className="mono graph__legend">
-          {agentGraph.legend.map(l => (
-            <React.Fragment key={l.kind}>
-              <i data-kind={l.kind} /> {l.label}{" "}
-            </React.Fragment>
-          ))}
-        </span>
-      </figcaption>
+    <>
+      <figure className="graph" ref={wrapRef}>
+        <figcaption className="graph__head">
+          <span className="mono graph__title">
+            <b className="graph__product">{agentGraph.product}</b>
+            <span className="graph__sep" aria-hidden="true">
+              /
+            </span>
+            {agentGraph.agent}
+            <span className="graph__sep" aria-hidden="true">
+              ·
+            </span>
+            {agentGraph.state}
+          </span>
+          <span className="mono graph__legend">
+            {agentGraph.legend.map(l => (
+              <React.Fragment key={l.kind}>
+                <i data-kind={l.kind} /> {l.label}{" "}
+              </React.Fragment>
+            ))}
+          </span>
+        </figcaption>
 
-      <canvas
-        ref={canvasRef}
-        className="graph__canvas"
-        role="img"
-        aria-label={agentGraph.aria}
-      />
+        <canvas
+          ref={canvasRef}
+          className="graph__canvas"
+          role="img"
+          aria-label={agentGraph.aria}
+        />
 
-      <p className="graph__status mono" aria-live="off">
-        <span className="graph__dot" data-done={done} />
-        <span className="graph__node">{current.node}</span>
-        <span className="graph__log">{current.log}</span>
-      </p>
-    </figure>
+        <p className="graph__status mono" aria-live="off">
+          <span className="graph__dot" data-done={done} />
+          <span className="graph__node">{current.node}</span>
+          <span className="graph__log">{current.log}</span>
+        </p>
+      </figure>
+
+      <p className="graph__caption">{agentGraph.caption}</p>
+    </>
   );
 }
