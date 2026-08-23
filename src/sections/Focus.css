@@ -21,21 +21,30 @@
   background: var(--ink-raised);
 }
 
-/* amber trace runs across the top edge on hover — same gesture as the graph packet */
-.fcard__trace {
+/* Light follows the cursor across the card — the same gesture as the blooms
+   behind the hero, at card scale. Drawn from --mx / --my, which useSpotlight
+   writes straight onto the element. */
+.fcard::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(90deg, var(--signal), transparent);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform 0.55s var(--ease-out);
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    var(--spot),
+    transparent 68%
+  );
 }
 
-.fcard:hover .fcard__trace {
-  transform: scaleX(1);
+.fcard:hover::after {
+  opacity: 1;
+}
+
+.fcard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .fcard__title {

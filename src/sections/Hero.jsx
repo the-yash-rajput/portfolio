@@ -11,8 +11,16 @@ export default function Hero({theme}) {
 
         <h1 className="hero__headline">
           {hero.headline.map((line, i) => (
-            <span className="hero__line" key={line} style={{"--i": i}}>
-              <span>{line}</span>
+            <span className="hero__line" key={line}>
+              {line.split(" ").map((word, j) => (
+                <span
+                  className="hero__word"
+                  key={`${word}-${j}`}
+                  style={{"--d": `${0.12 + (i * 4 + j) * 0.055}s`}}
+                >
+                  <span>{word}</span>
+                </span>
+              ))}
             </span>
           ))}
         </h1>

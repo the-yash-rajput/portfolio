@@ -42,6 +42,7 @@
      two accents so they read as paper catching light, not as a gradient. */
   --bloom-a: rgba(43, 76, 216, 0.13);
   --bloom-b: rgba(143, 91, 0, 0.12);
+  --spot: rgba(255, 216, 77, 0.3);
 
   /* type — grotesque display, serif body, mono strictly for data */
   --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -90,6 +91,7 @@
 
   --bloom-a: rgba(138, 160, 255, 0.13);
   --bloom-b: rgba(224, 166, 58, 0.11);
+  --spot: rgba(224, 166, 58, 0.16);
 
   /* dark ground: the dark-on-transparent logos need a plate to survive */
   --plate: #ffffff;

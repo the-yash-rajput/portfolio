@@ -88,17 +88,37 @@
 
 .hero__line {
   display: block;
+}
+
+/* Each word gets its own mask and rises out of it on a stagger. The padding /
+   negative-margin pair keeps descenders (g, y, p) from being clipped by the
+   mask, which is the usual way this effect goes wrong. */
+.hero__word {
+  display: inline-block;
   overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  margin-right: 0.26em;
 }
 
-.hero__line > span {
-  display: block;
-  animation: rise 1s var(--ease-out) both;
-  animation-delay: calc(0.18s + var(--i) * 0.11s);
+.hero__word > span {
+  display: inline-block;
+  animation: word-rise 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d);
 }
 
-.hero__line:last-child > span {
+.hero__line:last-child {
   color: var(--mist);
+}
+
+@keyframes word-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
 }
 
 .hero__meta {

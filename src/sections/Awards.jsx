@@ -1,14 +1,16 @@
 import React from "react";
 import Section from "../components/Section";
+import Counter from "../components/Counter";
 import {achievements, education} from "../data/profile";
 import {useReveal} from "../hooks/useReveal";
+import {useSpotlight} from "../hooks/useSpotlight";
 import "./Awards.css";
 
 function Award({card}) {
   return (
     <article className="award stagger-item">
       <p className="award__datum">
-        {card.datum}
+        <Counter value={card.datum} />
         <span className="mono award__unit">{card.unit}</span>
       </p>
       <h3 className="award__title">{card.title}</h3>
@@ -30,6 +32,7 @@ function Award({card}) {
 
 export default function Awards() {
   const gridRef = useReveal(0);
+  useSpotlight(gridRef, ".award");
   const eduRef = useReveal(120);
 
   return (

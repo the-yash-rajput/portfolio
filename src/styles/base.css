@@ -343,3 +343,10 @@ button {
     transform: none;
   }
 }
+
+/* Counting figures must not reflow as their digits change — tabular numerals
+   hold every glyph to the same advance width. */
+.counter__num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}

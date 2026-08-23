@@ -7,6 +7,7 @@
 }
 
 .award {
+  position: relative;
   background: var(--ink);
   outline: 1px solid var(--line-soft);
   padding: clamp(1.4rem, 3vw, 1.9rem);
@@ -18,6 +19,29 @@
 
 .award:hover {
   background: var(--ink-raised);
+}
+
+.award::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    var(--spot),
+    transparent 68%
+  );
+}
+
+.award:hover::after {
+  opacity: 1;
+}
+
+.award > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* The card leads with the number that earned it — same ledger language as the

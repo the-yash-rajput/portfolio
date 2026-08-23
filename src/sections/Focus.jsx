@@ -2,12 +2,12 @@ import React from "react";
 import Section from "../components/Section";
 import {focus} from "../data/profile";
 import {useReveal} from "../hooks/useReveal";
+import {useSpotlight} from "../hooks/useSpotlight";
 import "./Focus.css";
 
 function Card({card}) {
   return (
     <article className="fcard stagger-item">
-      <span className="fcard__trace" aria-hidden="true" />
       <h3 className="fcard__title">{card.title}</h3>
       <p className="fcard__body">{card.body}</p>
       <ul className="fcard__stack">
@@ -23,6 +23,7 @@ function Card({card}) {
 
 export default function Focus() {
   const ref = useReveal(0);
+  useSpotlight(ref, ".fcard");
   return (
     <Section
       id="focus"
