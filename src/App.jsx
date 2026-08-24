@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Trail from "./components/Trail";
 import Hero from "./sections/Hero";
 import Focus from "./sections/Focus";
 import Impact from "./sections/Impact";
@@ -23,6 +24,7 @@ export default function App() {
       <a className="skip" href="#focus">
         Skip to content
       </a>
+      <Trail />
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero theme={theme} />

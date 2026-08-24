@@ -74,8 +74,8 @@
   }
 }
 
-/* The page opened with light moving across the sheet; it closes the same way,
-   quieter and from the other side. */
+/* The hero's relief is a live surface; the page closes with the same light
+   made still — one slow bloom, from the other side. */
 .contact {
   position: relative;
   isolation: isolate;
@@ -100,5 +100,15 @@
 @media (max-width: 640px) {
   .contact::before {
     display: none;
+  }
+}
+
+@keyframes bloom-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-44px, 34px, 0) scale(1.12);
   }
 }

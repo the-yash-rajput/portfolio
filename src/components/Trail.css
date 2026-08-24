@@ -1,0 +1,44 @@
+/* Ink trail — a run of drafting dots the pointer pulls behind it. The head
+   sits on the cursor, each following dot is smaller, fainter and slower. */
+.trail {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+/* stays hidden until the pointer has actually moved, so no dot pile sits in
+   the top-left corner on load */
+.trail[data-on] {
+  opacity: 1;
+}
+
+.trail__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--trace);
+  opacity: calc(0.46 - var(--i) * 0.045);
+  transform: translate3d(var(--x, -50px), var(--y, -50px), 0)
+    scale(calc(1 - var(--i) * 0.085));
+  transition: transform calc(80ms + var(--i) * 58ms) var(--ease-out);
+  will-change: transform;
+}
+
+/* the dark theme's --trace is a pale periwinkle against a near-black ground;
+   it needs more alpha than dark ink on paper does to read at the same weight */
+[data-theme="dark"] .trail__dot {
+  opacity: calc(0.6 - var(--i) * 0.058);
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .trail {
+    display: none;
+  }
+}

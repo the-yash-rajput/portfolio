@@ -1,11 +1,27 @@
-import React from "react";
+import React, {useRef} from "react";
 import AgentGraph from "../components/AgentGraph";
+import {useSpotlight} from "../hooks/useSpotlight";
 import {hero, person} from "../data/profile";
 import "./Hero.css";
 
 export default function Hero({theme}) {
+  const ref = useRef(null);
+  // the moiré's parallax rides the same delegated pointer listener the cards use
+  useSpotlight(ref, ".hero");
+
   return (
-    <section className="hero" id="top">
+    <section className="hero" id="top" ref={ref}>
+      {/* Two sheets of drafting film, ruled at slightly different pitches and
+          turning against each other. Where the rulings nearly agree they
+          interfere, and the interference — not any of the lines — is the
+          image. No canvas, no WebGL: three gradients and a transform. */}
+      <div className="moire" aria-hidden="true">
+        <span className="moire__sheet moire__sheet--a" />
+        <span className="moire__sheet moire__sheet--b" />
+        <span className="moire__drift">
+          <span className="moire__rings" />
+        </span>
+      </div>
       <div className="shell hero__inner">
         <p className="mono hero__eyebrow">{hero.eyebrow}</p>
 

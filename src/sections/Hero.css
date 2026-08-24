@@ -2,70 +2,134 @@
   padding-top: clamp(3rem, 6vw, 5rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
   position: relative;
-  /* own stacking context so the blooms sit behind the hero's own content
+  /* own stacking context so the relief sits behind the hero's own content
      without escaping behind the page */
   isolation: isolate;
 }
 
-/* Two slow blooms drifting behind the hero. Large, heavily blurred and low
-   alpha — at this opacity they register as the sheet catching light rather
-   than as colour. Loops are long and out of phase (19s / 25s), so the pair
-   never visibly repeats. */
-.hero::before,
-.hero::after {
-  content: "";
+/* ---- the moiré field ----
+ *
+ * Two ruled sheets and one ring sheet, all hairlines, all turning slowly
+ * against each other. The visible pattern is the beat frequency between them,
+ * so it never repeats on any timescale you will sit through, and it costs
+ * three composited transforms — no canvas, no shader, no dependency.
+ *
+ * The centre is masked clear: the interference lives in the margins and the
+ * headline always sits on bare paper.
+ */
+.moire {
   position: absolute;
+  inset: 0;
   z-index: -1;
-  border-radius: 50%;
+  overflow: hidden;
   pointer-events: none;
+  /* On paper, hairlines this saturated read as a blueprint printed OVER the
+     page rather than as the sheet's own texture — the same strength that
+     works on the dark print is far too loud on light stock, where the ground
+     gives the ink nothing to sink into. Light runs at roughly a third of the alpha. */
+  opacity: 0.22;
+  mask-image: radial-gradient(
+    ellipse 70% 62% at 42% 42%,
+    transparent 12%,
+    #000 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 62% at 42% 42%,
+    transparent 12%,
+    #000 78%
+  );
+}
+
+/* oversized so a rotating sheet never swings its corner into frame */
+.moire__sheet,
+.moire__drift,
+.moire__rings {
+  position: absolute;
+  inset: -40%;
+  display: block;
   will-change: transform;
 }
 
-.hero::before {
-  width: 30rem;
-  height: 30rem;
-  top: 2rem;
-  left: -8rem;
-  background: var(--bloom-a);
-  filter: blur(100px);
-  animation: bloom-a 19s var(--ease) infinite;
+.moire__sheet--a {
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--trace) 70%, transparent) 0 1px,
+    transparent 1px 22px
+  );
 }
 
-.hero::after {
-  width: 34rem;
-  height: 34rem;
-  top: 8rem;
-  right: -10rem;
-  background: var(--bloom-b);
-  filter: blur(110px);
-  animation: bloom-b 25s var(--ease) infinite;
+/* the second sheet is laid almost — not quite — square on the first, and it
+   creeps a couple of degrees either side of true. That tiny angle is the whole
+   effect: the bands it beats out are ~1/sin(angle) times the ruling pitch, so
+   a few degrees of drift sweeps interference the width of a hand across the page. */
+.moire__sheet--b {
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--trace) 62%, transparent) 0 1px,
+    transparent 1px 23.4px
+  );
+  animation: sheet-skew 48s var(--ease) infinite;
 }
 
-/* the blur is expensive and the effect is invisible at phone width */
-@media (max-width: 640px) {
-  .hero::before,
-  .hero::after {
-    display: none;
-  }
+/* rings are rotationally symmetric, so they breathe instead of turning — the
+   pitch change walks their fringes outward against the straight rulings */
+.moire__rings {
+  inset: 0;
+  background: repeating-radial-gradient(
+    circle at 62% 38%,
+    color-mix(in srgb, var(--signal) 65%, transparent) 0 1px,
+    transparent 1px 23px
+  );
+  animation: rings-breathe 41s var(--ease) infinite;
 }
 
-@keyframes bloom-a {
+/* parallax only — --mx / --my come from useSpotlight, and a transform keeps
+   this on the compositor instead of repainting a fullscreen gradient */
+.moire__drift {
+  inset: 0;
+  transform: translate3d(
+    calc(var(--mx, 0px) * 0.035),
+    calc(var(--my, 0px) * 0.035),
+    0
+  );
+  transition: transform 1.4s var(--ease-out);
+}
+
+@keyframes sheet-skew {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: rotate(-1.1deg);
   }
   50% {
-    transform: translate3d(36px, -28px, 0) scale(1.08);
+    transform: rotate(6.2deg);
   }
 }
 
-@keyframes bloom-b {
+@keyframes rings-breathe {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: scale(1);
   }
   50% {
-    transform: translate3d(-44px, 34px, 0) scale(1.12);
+    transform: scale(1.12);
+  }
+}
+
+[data-theme="dark"] .moire {
+  opacity: 0.4;
+}
+
+/* frozen, the sheets still interfere — a still moiré is the whole point */
+@media (prefers-reduced-motion: reduce) {
+  .moire__sheet,
+  .moire__rings,
+  .moire__drift {
+    animation: none;
+    transition: none;
+  }
+
+  .moire__sheet--b {
+    transform: rotate(3.4deg);
   }
 }
 
